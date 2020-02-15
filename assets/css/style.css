@@ -1,3 +1,8 @@
 body {
   font-family: 'Roboto', sans-serif !important;
 }
+.text-gradient {
+  background: -webkit-linear-gradient(#000, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
