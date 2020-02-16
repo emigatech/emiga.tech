@@ -26,7 +26,7 @@ $( document ).ready(function() {
 
               <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 p-0">
-                  <div data-bg="url('`+data.articles[i].urlToImage+`')" alt="`+data.articles[i].title+`" class="lazy img-fluid img-responsive"></div>
+                  <div data-bg="url('`+data.articles[i].urlToImage+`')" alt="`+data.articles[i].title+`" class="lazy img-fluid img-responsive bg-dark"></div>
                 </div>
                 <div class="col-sm-12 col-md-8 col-lg-8 bg-white p-3 border mt-1 mb-1">
                     <a href="`+data.articles[i].url+`" target="_blank">
