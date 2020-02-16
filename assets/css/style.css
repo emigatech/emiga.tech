@@ -16,7 +16,8 @@ body * {
 	 flex-direction: column;
 }
 .img-responsive {
-  height: 352px !important;
+  min-height: 280px !important;
+  height: 100% !important;
   background-size: cover;
   background-repeat: no-repeat;
 }
