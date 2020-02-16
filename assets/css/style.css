@@ -46,7 +46,7 @@ a:hover{
 }
 .navbar-collapse{
   transition-timing-function: ease-in;
-  transition: 1.3s;
+  transition: .3s;
 }
 /**
   Footer

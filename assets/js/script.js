@@ -1,6 +1,11 @@
 $( document ).ready(function() {
-  AOS.init();
   
+  AOS.init();
+  var lazy = new LazyLoad({
+    elements_selector: ".lazy",
+
+  });
+
   $.ajax("https://newsapi.org/v2/top-headlines?country=us&category=technology&pageSize=100&apiKey=152945cf366446688129bd121c63cd5c", {
     type: "GET",
     dataType: "json",
@@ -9,7 +14,7 @@ $( document ).ready(function() {
       for(var i = 0; i < data.articles.length; i++)
       {
         $('#emiga-app').append(`
-          <div  data-aos="fade-down" class="col-12 border mt-1 mb-1 w-100" onclick="window.open('`+data.articles[i].url+`', '_blank')" style="cursor:pointer;">
+          <div  title="`+data.articles[i].title+`" data-aos="fade-down" class="col-12 border mt-1 mb-1 w-100" onclick="window.open('`+data.articles[i].url+`', '_blank')" style="cursor:pointer;">
             <div class="container pt-2 pb-2">
 
               <div class="d-flex justify-content-between pt-2 pb-2">
@@ -21,7 +26,7 @@ $( document ).ready(function() {
 
               <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 p-0">
-                  <div style="background-image: url('`+data.articles[i].urlToImage+`') !important;" class="bg-dark img-fluid img-responsive"></div>
+                  <div data-bg="url('`+data.articles[i].urlToImage+`')" alt="`+data.articles[i].title+`" class="lazy img-fluid img-responsive"></div>
                 </div>
                 <div class="col-sm-12 col-md-8 col-lg-8 bg-white p-3 border mt-1 mb-1">
                     <a href="`+data.articles[i].url+`" target="_blank">
@@ -41,6 +46,8 @@ $( document ).ready(function() {
             </div>
           </div>
         `);
+
+         lazy.update();
       }
     },
     error: function(req, status, err) {
