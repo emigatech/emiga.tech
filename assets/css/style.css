@@ -5,6 +5,26 @@ body {
 body * {
   word-break: break-all !important;
 }
+/**
+  Scrool 
+*/
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent !important;
+}
+body::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+body::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-left: 1px solid #dee2e6;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #dee2e6;
+}
+/**
+  Row 
+*/
 .row {
   display: -webkit-box;
   display: -webkit-flex;
@@ -18,8 +38,12 @@ body * {
 .img-responsive {
   min-height: 280px !important;
   height: 100% !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 /*
   Color
@@ -53,7 +77,16 @@ a:hover{
 */
 .footer {
   background-color: #fff !important;
-  border-right:none !important;
-  border-left:none !important;
-  border-bottom:none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+/**
+  Media Queries
+*/
+@media only screen and (max-width: 575px)  {
+  .border {
+    border-left: none !important;
+    border-right : none !important;
+  }
 }
