@@ -13,9 +13,6 @@ var filesToCache = [
 	'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js',
 	'https://unpkg.com/aos@2.3.1/dist/aos.js',
 	'https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js',
-	'https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js',
-	'https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js',
-	'https://www.googletagmanager.com/gtag/js?id=G-BSDKWE5580',
 	'assets/emiga.tech-logo.png'  
 ];  
 
