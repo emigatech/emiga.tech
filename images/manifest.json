@@ -37,5 +37,11 @@
    "type": "image\/png",
    "density": "4.0"
   }
- ]
+ ],
+ "short_name": "emiga.tech", 
+  "lang": "en-US",     
+  "start_url": "/index.html", 
+  "display": "standalone",  
+  "background_color": "#ffffff",   
+  "theme_color": "#f3f3f3" 
 }

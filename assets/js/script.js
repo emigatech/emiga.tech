@@ -45,7 +45,9 @@ $( document ).ready(function() {
 
               <div class="row">            
                 <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 p-0">
-                    <div data-bg="url('`+filterXSS(image)+`')" alt="`+filterXSS(title)+`" class="lazy text-center img-fluid img-responsive bg-dark"></div>
+                    <a href="`+filterXSS(url)+`" target="_blank" title="Go to `+filterXSS(title)+`">
+                    	<div data-bg="url('`+filterXSS(image)+`')" alt="`+filterXSS(title)+`" class="lazy text-center img-fluid img-responsive bg-dark"></div>
+                	</a>
                 </div>
                 <div class="col-sm-12 col-md-8 col-lg-8 bg-white p-3 mt-1 mb-1">
                     <a href="`+filterXSS(url)+`" target="_blank" title="Go to `+filterXSS(title)+`">
