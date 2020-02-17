@@ -26,6 +26,21 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
+  'https://d33wubrfki0l68.cloudfront.net/css/9729b997039155b12d8ebaf8538cece5a393f08d/assets/css/style.css',
+  new workbox.strategies.CacheFirst(),
+);
+
+workbox.routing.registerRoute(
+  'https://d33wubrfki0l68.cloudfront.net/cd45afb054222bb40057cd9785471c13df65ad08/307c2/images/emiga.tech-logo.png',
+  new workbox.strategies.CacheFirst(),
+);
+
+workbox.routing.registerRoute(
+  'https://d33wubrfki0l68.cloudfront.net/js/f1187f94dc97a6ee3d817cac1abd896eee8e8205/assets/js/script.js',
+  new workbox.strategies.CacheFirst(),
+);
+
+workbox.routing.registerRoute(
   '/assets/emiga.tech-logo.png',
   new workbox.strategies.CacheFirst(),
 );
