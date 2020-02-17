@@ -1,4 +1,4 @@
-var cacheName = 'hello-pwa'; 
+var cacheName = 'emiga-tech-cache-v1.0.0'; 
 var filesToCache = [
 	'/',    
 	'/index.html',    
