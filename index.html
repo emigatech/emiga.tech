@@ -171,12 +171,13 @@
 	  firebase.initializeApp(firebaseConfig);
 	  firebase.analytics();
 
-	  if ('serviceWorker' in navigator) {
-  		navigator.serviceWorker.register('/service-worker.js')
-		  .catch(function(err) {
-		    console.info('Service workers are not supported.');
-		});
-	  }
+		window.onload = () => {  
+		'use strict';     
+			if ('serviceWorker' in navigator) {     
+				navigator.serviceWorker  
+				.register('./service-worker.js'); 
+			} 
+		}
 	</script>
 </body>
 </html>
