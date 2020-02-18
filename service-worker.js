@@ -26,7 +26,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  '/assets/emiga.tech-logo.png',
+  '/assets/emiga-logo.png',
   new workbox.strategies.CacheFirst(),
 );
 
