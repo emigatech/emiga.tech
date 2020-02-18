@@ -1,9 +1,31 @@
+@media only screen and (max-width: 319px)  {
+  body,html {
+    display: none;
+  }
+}
 body {
   font-family: 'Roboto', sans-serif !important;
   margin-top:57px;
 }
 body * {
   word-break: break-all !important;
+}
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
 }
 /**
   Scrool 
@@ -63,6 +85,9 @@ a:hover{
 .bg-white {
   background-color: #fff;
 }
+.footer {
+  display: none;
+}
 /*
   Navbar
 */
@@ -71,6 +96,9 @@ a:hover{
 }
 .navbar-toggler{
   border: none !important;
+}
+.border-navbar {
+  border-bottom: 1px solid #dee2e6 !important;
 }
 .navbar-collapse{
   transition-timing-function: ease-in;
@@ -129,4 +157,31 @@ a:hover{
 .ticker-item{
   display: inline-block;
   padding: 0 2rem;
+}
+/**
+  Search bar
+*/
+input[type="search"]{
+  border-radius:10px !important;
+  box-sizing: border-box !important;
+  width: 150px;
+  background-color: #f8f9fa;
+}
+input[type="search"]:focus, input[type="search"]:active{
+  border:1.5px solid #dee2e6;
+}
+@media only screen and (min-width: 400px)  {
+  input[type="search"] {
+    width: 200px;
+  }
+}
+@media only screen and (min-width: 500px)  {
+  input[type="search"] {
+    width: 250px;
+  }
+}
+@media only screen and (min-width: 600px)  {
+  input[type="search"] {
+    width: 300px;
+  }
 }

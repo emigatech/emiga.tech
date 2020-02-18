@@ -11,7 +11,10 @@ $( document ).ready(function() {
     type: "GET",
     dataType: "json",
     success: function(data) {
+    	
       $('#loading').hide();
+      $('#error-text').html('');
+
       for(var i = 0; i < data.articles.length; i++)
       {
 		
@@ -64,7 +67,7 @@ $( document ).ready(function() {
     },
     error: function(req, status, err) {
       $('.spinner-border').hide(); 	
-      $('#loading').append(
+      $('#emiga-error').append(
 		`
 		<div class="pt-5"></div>
 		<svg height="128" viewBox="0 0 64 64" width="128" xmlns="http://www.w3.org/2000/svg"><path d="m61 39h-8a1 1 0 0 1 0-2h7v-10h-6.83a1 1 0 0 1 -.962-.728 20.5 20.5 0 0 0 -1.869-4.5 1 1 0 0 1 .164-1.2l4.833-4.833-7.076-7.075-4.833 4.836a1 1 0 0 1 -1.2.164 20.525 20.525 0 0 0 -4.5-1.869 1 1 0 0 1 -.727-.965v-6.83h-10v6.83a1 1 0 0 1 -.728.962 20.5 20.5 0 0 0 -4.5 1.869 1 1 0 0 1 -1.2-.164l-4.832-4.833-7.076 7.076 4.836 4.833a1 1 0 0 1 .164 1.2 20.553 20.553 0 0 0 -1.869 4.5 1 1 0 0 1 -.965.727h-6.83v10h6.83a1 1 0 0 1 0 2h-7.83a1 1 0 0 1 -1-1v-12a1 1 0 0 1 1-1h7.087a22.523 22.523 0 0 1 1.469-3.541l-5.013-5.012a1 1 0 0 1 0-1.414l8.49-8.49a1 1 0 0 1 1.414 0l5.013 5.013a22.473 22.473 0 0 1 3.54-1.469v-7.087a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v7.087a22.473 22.473 0 0 1 3.54 1.469l5.013-5.013a1 1 0 0 1 1.414 0l8.49 8.49a1 1 0 0 1 0 1.414l-5.013 5.012a22.619 22.619 0 0 1 1.469 3.541h7.087a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1z"/><path d="m57 54.142v-7.142a1 1 0 0 0 -.419-.814l-6.581-4.701v-9.485a18 18 0 0 0 -36 0v9.485l-6.581 4.7a1 1 0 0 0 -.419.815v7.142a4 4 0 1 0 2 0v-6.627l6.581-4.7a1 1 0 0 0 .419-.815v-10a16 16 0 0 1 32 0v10a1 1 0 0 0 .419.814l6.581 4.701v6.627a4 4 0 1 0 2 0zm-47 3.858a2 2 0 1 1 -2-2 2 2 0 0 1 2 2zm46 2a2 2 0 1 1 2-2 2 2 0 0 1 -2 2z"/><path d="m44 46.142v-14.142a12 12 0 0 0 -24 0v14.142a4 4 0 1 0 2 0v-14.142a10 10 0 0 1 20 0v14.142a4 4 0 1 0 2 0zm-21 3.858a2 2 0 1 1 -2-2 2 2 0 0 1 2 2zm20 2a2 2 0 1 1 2-2 2 2 0 0 1 -2 2z"/><path d="m33 54.142v-16.142a1 1 0 0 0 -2 0v16.142a4 4 0 1 0 2 0zm-1 5.858a2 2 0 1 1 2-2 2 2 0 0 1 -2 2z"/><path d="m32 26a6 6 0 1 0 6 6 6.006 6.006 0 0 0 -6-6zm0 10a4 4 0 1 1 4-4 4 4 0 0 1 -4 4z"/><path d="m31 6h2v2h-2z"/><path d="m13.322 13.322h2v2h-2z" transform="matrix(.707 -.707 .707 .707 -5.932 14.322)"/><path d="m6 31h2v2h-2z"/><path d="m56 31h2v2h-2z"/><path d="m48.678 13.322h2v2h-2z" transform="matrix(.707 -.707 .707 .707 4.423 39.322)"/></svg>
@@ -77,5 +80,116 @@ $( document ).ready(function() {
     }
   });
 
+	$(window).scroll(function(e) {
+
+	    var scroll = $(window).scrollTop();
+	    if (scroll >= 60) {
+	    	$('#navbar').addClass("border-navbar shadow-sm");
+	        $('.footer').show();
+	        $('.navbar-brand').hide();
+	    } 
+	    else {
+	        $('#navbar').removeClass("border-navbar shadow-sm");
+	        $('.footer').hide();
+	        $('.navbar-brand').show();
+	    }
+
+	});
+
+	$("#search-bar").on("submit", function(e){
+		e.preventDefault(e);
+
+		$('#error-text').html('');
+   		$('#emiga-app').html('');
+   		$('.spinner-border').show();
+   		$('#loading').show();
+
+   		  $.ajax("https://newsapi.org/v2/everything?q="+filterXSS($("#search").val())+"&pageSize=100&apiKey=152945cf366446688129bd121c63cd5c", {
+		    type: "GET",
+		    dataType: "json",
+		    success: function(data) {
+		      $('#loading').hide();
+
+		      if(data.totalResults==0){
+ 				$('.spinner-border').hide(); 	
+		      	$('#error-text').append(
+				`
+				<div class="pt-5"></div>
+				<svg height="128" width="128" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M476.014,180.001l-93.05-27.197l-0.38-0.105c-2.816-0.744-5.794-0.744-8.61,0l-22.125,6.465V70.247C351.85,24.13,268.102,0,185.375,0S18.901,24.13,18.901,70.247v371.507c0,46.118,83.747,70.246,166.474,70.246s166.475-24.13,166.475-70.246v-24.057l1.378,0.811l0.841,0.459c7.58,3.826,15.895,5.739,24.211,5.739c8.316,0,16.631-1.913,24.211-5.739l0.429-0.216l61.203-35.973c17.887-9.241,28.977-27.431,28.977-47.598V202.423C493.098,191.957,486.085,182.773,476.014,180.001z M83.398,45.258c27.007-9.85,63.222-15.276,101.977-15.276c38.755,0,74.971,5.426,101.978,15.276c23.714,8.65,34.514,19.017,34.514,24.989c0,5.971-10.802,16.338-34.514,24.988c-27.007,9.85-63.224,15.276-101.978,15.276c-38.754,0-74.97-5.426-101.977-15.276c-23.714-8.65-34.514-19.017-34.514-24.988C48.883,64.275,59.684,53.908,83.398,45.258z M321.868,112.219v55.707l-41.323,12.075c-9.082,2.5-15.658,10.219-16.865,19.385c-23.241,5.533-49.884,8.441-77.805,8.441c-38.755,0-74.971-5.426-101.977-15.276c-23.715-8.65-34.514-19.016-34.514-24.988c0-1.308-0.185-2.57-0.5-3.78v-51.564c31.719,18.668,84.304,28.274,136.492,28.274C237.563,140.493,290.149,130.887,321.868,112.219z M48.883,209.239c31.664,18.863,84.529,28.571,136.991,28.571c27.422,0,53.853-2.633,77.587-7.657v62.628c-23.081,5.369-50.338,8.291-78.086,8.291c-38.754,0-74.97-5.426-101.977-15.276c-23.714-8.65-34.514-19.017-34.514-24.988V209.239z M48.883,302.78c31.719,18.668,84.304,28.274,136.492,28.274c27.743,0,54.344-2.601,78.086-7.563v11.689c0,18.625,9.463,35.558,25,45.318c-25.869,10.13-62.706,16.069-102.587,16.069c-38.754,0-74.971-5.426-101.977-15.276c-23.714-8.65-34.514-19.017-34.514-24.989c0-1.308-0.185-2.57-0.5-3.78V302.78z M321.869,441.754L321.869,441.754c-0.001,5.971-10.803,16.338-34.515,24.988c-27.007,9.85-63.224,15.276-101.978,15.276c-38.754,0-74.97-5.426-101.977-15.276c-23.714-8.65-34.514-19.017-34.514-24.988v-43.776c31.664,18.863,84.529,28.571,136.991,28.571c54.677,0,103.633-10.296,133.71-27.816l2.284,1.342V441.754z M450.15,356.247l-0.429,0.216l-61.12,35.924c-6.496,3.133-14.15,3.133-20.646,0l-60.707-35.681l-0.841-0.459c-7.997-4.037-12.965-12.11-12.965-21.067V211.356c0-0.002,0-0.004,0-0.006v-3.882l47.826-13.979c0.023-0.007,36.987-10.811,37.01-10.818l84.836,24.797v127.71h0.001C463.116,344.137,458.148,352.21,450.15,356.247z"/></g></g><g><g><path d="M399.147,289.009l22.065-22.065c5.854-5.854,5.854-15.346,0-21.2c-5.854-5.854-15.346-5.854-21.2,0l-22.065,22.065l-21.401-21.403c-5.854-5.855-15.346-5.854-21.2,0s-5.854,15.346,0,21.2l21.403,21.403l-20.255,20.255c-5.854,5.854-5.854,15.346,0,21.2c2.927,2.927,6.764,4.391,10.6,4.391c3.836,0,7.673-1.464,10.6-4.391l20.255-20.255l20.918,20.918c2.927,2.928,6.764,4.391,10.6,4.391s7.673-1.464,10.6-4.391c5.855-5.854,5.855-15.346,0-21.2L399.147,289.009z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+				<h4 class="pt-2">
+					<b>Our monkeys are buys</b>
+				</h4>
+					</br>
+				<h6>Please check your <b>`+filterXSS($('#search').val())+`</b> request.</h6>`);		      	
+		      }
+		      else {
+		      	$('#error-text').html('');
+		      }
+
+		      for(var i = 0; i < data.articles.length; i++)
+		      {
+
+				date=data.articles[i].publishedAt,image=data.articles[i].urlToImage,title=data.articles[i].title,description=data.articles[i].description,url=data.articles[i].url,content=data.articles[i].content,author=data.articles[i].author,source_name=data.articles[i].source.name,"null"==date&&date,"null"==image&&date,"null"==title&&date,"null"==description&&date,"null"==url&&date,"null"==content&&date,"null"==author&&date,"null"==source_name&&date;
+
+		        $('#emiga-app').append(`
+		          <div data-aos="fade-down" class="col-12 border mt-1 mb-1 w-100">
+		            <div class="container pt-2 pb-2">
+
+		              <div class="d-flex justify-content-between pt-2 pb-2">
+		                <div></div>
+		                <div>
+		                  <h6 class="text-muted d-sm-none d-md-block">`+moment(filterXSS(date)).format("DD MMMM HH:mm, YYYY")+`</h6>
+		                </div>
+		              </div>
+
+		              <div class="row">            
+		                <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 p-0">
+		                    <a href="`+filterXSS(url)+`" target="_blank" title="Go to `+filterXSS(title)+`">
+		                    	<div data-bg="url('`+filterXSS(image)+`')" alt="`+filterXSS(title)+`" class="lazy text-center img-fluid img-responsive bg-dark"></div>
+		                	</a>
+		                </div>
+		                <div class="col-sm-12 col-md-8 col-lg-8 bg-white p-3 mt-1 mb-1">
+		                    <a href="`+filterXSS(url)+`" target="_blank" title="Go to `+filterXSS(title)+`">
+		                      <h4>`+filterXSS(title)+`</h4>
+		                    </a>
+		                    <p class="pt-2 pb-2">`+filterXSS(content)+`</p>
+		                </div>
+		                <div class="tcontainer border col-sm-12 col-md-12 col-lg-12 p-0">
+		                  <div class="ticker-wrap">
+		                    <div class="ticker-move">
+		                      <div class="ticker-item">`+filterXSS(description)+`</div>
+		                    </div>
+		                  </div>
+		                </div>
+		              </div>
+
+		              <div class="d-flex justify-content-between pt-2 pb-2">
+		                <div>
+		                  <h6 class="text-muted d-sm-none d-md-block">by <b>`+filterXSS(author)+`</b> on `+filterXSS(source_name)+`</h6>
+		                </div>
+		              </div>
+
+		            </div>
+		          </div>
+		        `);
+
+		        lazy.update();
+		      }
+		    },
+		    error: function(req, status, err) {
+		      $('.spinner-border').hide(); 	
+		      $('#error-text').append(
+				`
+				<div class="pt-5"></div>
+				<svg height="128" viewBox="0 0 64 64" width="128" xmlns="http://www.w3.org/2000/svg"><path d="m61 39h-8a1 1 0 0 1 0-2h7v-10h-6.83a1 1 0 0 1 -.962-.728 20.5 20.5 0 0 0 -1.869-4.5 1 1 0 0 1 .164-1.2l4.833-4.833-7.076-7.075-4.833 4.836a1 1 0 0 1 -1.2.164 20.525 20.525 0 0 0 -4.5-1.869 1 1 0 0 1 -.727-.965v-6.83h-10v6.83a1 1 0 0 1 -.728.962 20.5 20.5 0 0 0 -4.5 1.869 1 1 0 0 1 -1.2-.164l-4.832-4.833-7.076 7.076 4.836 4.833a1 1 0 0 1 .164 1.2 20.553 20.553 0 0 0 -1.869 4.5 1 1 0 0 1 -.965.727h-6.83v10h6.83a1 1 0 0 1 0 2h-7.83a1 1 0 0 1 -1-1v-12a1 1 0 0 1 1-1h7.087a22.523 22.523 0 0 1 1.469-3.541l-5.013-5.012a1 1 0 0 1 0-1.414l8.49-8.49a1 1 0 0 1 1.414 0l5.013 5.013a22.473 22.473 0 0 1 3.54-1.469v-7.087a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v7.087a22.473 22.473 0 0 1 3.54 1.469l5.013-5.013a1 1 0 0 1 1.414 0l8.49 8.49a1 1 0 0 1 0 1.414l-5.013 5.012a22.619 22.619 0 0 1 1.469 3.541h7.087a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1z"/><path d="m57 54.142v-7.142a1 1 0 0 0 -.419-.814l-6.581-4.701v-9.485a18 18 0 0 0 -36 0v9.485l-6.581 4.7a1 1 0 0 0 -.419.815v7.142a4 4 0 1 0 2 0v-6.627l6.581-4.7a1 1 0 0 0 .419-.815v-10a16 16 0 0 1 32 0v10a1 1 0 0 0 .419.814l6.581 4.701v6.627a4 4 0 1 0 2 0zm-47 3.858a2 2 0 1 1 -2-2 2 2 0 0 1 2 2zm46 2a2 2 0 1 1 2-2 2 2 0 0 1 -2 2z"/><path d="m44 46.142v-14.142a12 12 0 0 0 -24 0v14.142a4 4 0 1 0 2 0v-14.142a10 10 0 0 1 20 0v14.142a4 4 0 1 0 2 0zm-21 3.858a2 2 0 1 1 -2-2 2 2 0 0 1 2 2zm20 2a2 2 0 1 1 2-2 2 2 0 0 1 -2 2z"/><path d="m33 54.142v-16.142a1 1 0 0 0 -2 0v16.142a4 4 0 1 0 2 0zm-1 5.858a2 2 0 1 1 2-2 2 2 0 0 1 -2 2z"/><path d="m32 26a6 6 0 1 0 6 6 6.006 6.006 0 0 0 -6-6zm0 10a4 4 0 1 1 4-4 4 4 0 0 1 -4 4z"/><path d="m31 6h2v2h-2z"/><path d="m13.322 13.322h2v2h-2z" transform="matrix(.707 -.707 .707 .707 -5.932 14.322)"/><path d="m6 31h2v2h-2z"/><path d="m56 31h2v2h-2z"/><path d="m48.678 13.322h2v2h-2z" transform="matrix(.707 -.707 .707 .707 4.423 39.322)"/></svg>
+				<h4 class="pt-2">
+					<b>Connection Error</b>
+				</h4>
+					</br>
+				<h6>Please check your network connection.</h6>`);
+		      console.error("Something went wrong! Status: %s (%s)", status, err);
+		    }
+		  });
+ 	})
 
 });
