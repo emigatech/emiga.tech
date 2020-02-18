@@ -36,7 +36,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  'https://d33wubrfki0l68.cloudfront.net/js/f1187f94dc97a6ee3d817cac1abd896eee8e8205/assets/js/script.js',
+  'https://d33wubrfki0l68.cloudfront.net/js/3a684183704ab149612dc93ab407bfb1ac801d10/assets/js/script.js',
   new workbox.strategies.CacheFirst(),
 );
 
