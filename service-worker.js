@@ -4,7 +4,7 @@ workbox.googleAnalytics.initialize();
 
 workbox.core.setCacheNameDetails({
   prefix: 'emiga-tech',
-  suffix: 'v1.2.3',
+  suffix: 'v1.2.4',
   precache: 'emiga-tech-custom-precache-name',
   runtime: 'emiga-tech-custom-runtime-name'
 });
@@ -31,7 +31,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  '/assets/js/script.css',
+  '/assets/js/script.js',
   new workbox.strategies.CacheFirst(),
 );
 
