@@ -136,5 +136,5 @@ workbox.routing.registerRoute(
         }
     })
 );
-  
+
 workbox.precaching.precacheAndRoute([]);

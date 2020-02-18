@@ -103,6 +103,9 @@ a:hover{
   transition-timing-function: ease-in;
   transition: .3s;
 }
+.navbar a:hover{
+  text-decoration: underline !important;
+}
 /**
   Footer
 */
