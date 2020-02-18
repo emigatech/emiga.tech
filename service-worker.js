@@ -4,7 +4,7 @@ workbox.googleAnalytics.initialize();
 
 workbox.core.setCacheNameDetails({
   prefix: 'emiga-tech',
-  suffix: 'v1.2.1',
+  suffix: 'v1.2.2',
   precache: 'emiga-tech-custom-precache-name',
   runtime: 'emiga-tech-custom-runtime-name'
 });
@@ -26,7 +26,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  'https://d33wubrfki0l68.cloudfront.net/css/6baa530c94a24d7bfb0e7d00e9cac124ab35bac4/assets/css/style.css',
+  'https://d33wubrfki0l68.cloudfront.net/css/4ddb18d7efa0c9afd7561696e69a88f60e36ee81/assets/css/style.css',
   new workbox.strategies.CacheFirst(),
 );
 
@@ -36,7 +36,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  'https://d33wubrfki0l68.cloudfront.net/js/9c8136322de49e45ccbb8087c16fe9605a1a6d13/assets/js/script.js',
+  'https://d33wubrfki0l68.cloudfront.net/js/8ccc00259ec917a9a039a3d60846d40e4282d961/assets/js/script.js',
   new workbox.strategies.CacheFirst(),
 );
 
