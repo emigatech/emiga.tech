@@ -26,7 +26,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  'https://d33wubrfki0l68.cloudfront.net/css/bf0f57af352ab7f9b73c4a534ad22bd14b46e9b3/assets/css/style.css',
+  'https://d33wubrfki0l68.cloudfront.net/css/60e85362efeb915debf2b2aba8a5ba3d69339c1c/assets/css/style.css',
   new workbox.strategies.CacheFirst(),
 );
 
@@ -36,7 +36,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  'https://d33wubrfki0l68.cloudfront.net/js/3a684183704ab149612dc93ab407bfb1ac801d10/assets/js/script.js',
+  'https://d33wubrfki0l68.cloudfront.net/js/ee6a3c8450d624dde0303dd893f8137f38acef3e/assets/js/script.js'https://d33wubrfki0l68.cloudfront.net/js/ee6a3c8450d624dde0303dd893f8137f38acef3e/assets/js/script.js,
   new workbox.strategies.CacheFirst(),
 );
 
