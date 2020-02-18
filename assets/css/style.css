@@ -121,7 +121,7 @@ a:hover{
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-name: ticker;
-  animation-duration: 39s;
+  animation-duration: 10s;
 }
 .ticker-move:hover{
   animation-play-state: paused;
