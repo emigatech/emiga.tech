@@ -182,7 +182,7 @@
 	    a.async=1;a.src=f;var s=document.getElementsByTagName('script')[0];
 	    s.parentNode.insertBefore(a,s);}load(sa);
 	    window.addEventListener('load',function(){firebase.initializeApp(fbc).performance()});
-	  })(performance_standalone, firebaseConfig);
+	  })('https://www.gstatic.com/firebasejs/7.8.2/firebase-performance-standalone.js', firebaseConfig);
 	  // Service Worker
 		window.onload = () => {  
 		'use strict';     
