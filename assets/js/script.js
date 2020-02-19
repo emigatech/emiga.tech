@@ -77,7 +77,7 @@ $( document ).ready(function() {
   	request = 'https://newsapi.org/v2/top-headlines?category=technology&country=us&sortBy=popularity&language=en&pageSize=100&apiKey='+emiga_app;
   }
   else {
-  	request = 'https://newsapi.org/v2/everything?q='+filterXSS(app_query['q'])+'&country=us&language=en&sortBy=popularity&pageSize=100&apiKey='+emiga_app;
+  	request = 'https://newsapi.org/v2/everything?q='+filterXSS(app_query['q'])+'&language=en&sortBy=popularity&pageSize=100&apiKey='+emiga_app;
   }
 
   $.ajax(request, {
