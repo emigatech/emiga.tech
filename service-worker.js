@@ -4,7 +4,7 @@ workbox.googleAnalytics.initialize();
 
 workbox.core.setCacheNameDetails({
   prefix: 'emiga-tech',
-  suffix: 'v1.2.6',
+  suffix: 'v1.2.7',
   precache: 'emiga-tech-custom-precache-name',
   runtime: 'emiga-tech-custom-runtime-name'
 });
@@ -17,6 +17,11 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   '/',
+  new workbox.strategies.CacheFirst(),
+);
+
+workbox.routing.registerRoute(
+  '/search.xml',
   new workbox.strategies.CacheFirst(),
 );
 
@@ -108,17 +113,6 @@ workbox.routing.registerRoute(
                 purgeOnQuotaError: true
             })
         ]
-    })
-);
-
-// 3. cache news articles result
-workbox.routing.registerRoute(
-    new RegExp('https://newsapi.org/v2/top-headlines?country=us&category=technology&pageSize=100&apiKey=152945cf366446688129bd121c63cd5c'),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: 'api-cache',
-        cacheExpiration: {
-            maxAgeSeconds: 60 * 30 //cache the news content for 30mn
-        }
     })
 );
 
