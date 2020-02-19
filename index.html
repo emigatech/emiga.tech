@@ -177,7 +177,13 @@
 	  };
 	  firebase.initializeApp(firebaseConfig);
 	  firebase.analytics();
-
+	  //Performance Test
+	  (function(sa,fbc){function load(f,c){var a=document.createElement('script');
+	    a.async=1;a.src=f;var s=document.getElementsByTagName('script')[0];
+	    s.parentNode.insertBefore(a,s);}load(sa);
+	    window.addEventListener('load',function(){firebase.initializeApp(fbc).performance()});
+	  })(performance_standalone, firebaseConfig);
+	  // Service Worker
 		window.onload = () => {  
 		'use strict';     
 			if ('serviceWorker' in navigator) {     
