@@ -74,10 +74,10 @@ $( document ).ready(function() {
   // Check url
   if(app_query['q'] == undefined) {
 
-  	request = 'https://newsapi.org/v2/top-headlines?category=technology&pageSize=100&apiKey='+emiga_app;
+  	request = 'https://newsapi.org/v2/top-headlines?category=technology&sortBy=popularity&country=us&pageSize=100&apiKey='+emiga_app;
   }
   else {
-  	request = 'https://newsapi.org/v2/everything?q='+filterXSS(app_query['q'])+'&pageSize=100&apiKey='+emiga_app;
+  	request = 'https://newsapi.org/v2/everything?q='+filterXSS(app_query['q'])+'&sortBy=popularity&pageSize=100&apiKey='+emiga_app;
   }
 
   $.ajax(request, {
