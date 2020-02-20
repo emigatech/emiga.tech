@@ -4,7 +4,7 @@ workbox.googleAnalytics.initialize();
 
 workbox.core.setCacheNameDetails({
   prefix: 'emiga-tech',
-  suffix: 'v1.2.11',
+  suffix: 'v1.2.12',
   precache: 'emiga-tech-custom-precache-name',
   runtime: 'emiga-tech-custom-runtime-name'
 });
