@@ -189,6 +189,9 @@
 	<script type="text/javascript" src="https://www.gstatic.com/firebasejs/7.8.2/firebase-messaging.js"></script>
 
 	<script>
+	/**
+	  Firebase
+	*/
 	var firebaseConfig = {
 	  apiKey: "AIzaSyBJgSkE-MEvoYobuDV5KTHVLSvTmOjoV10",
 	  authDomain: "emiga-tech.firebaseapp.com",
@@ -208,16 +211,13 @@
 	  s.parentNode.insertBefore(a,s);}load(sa);
 	  window.addEventListener('load',function(){firebase.initializeApp(fbc).performance()});
 	})('https://www.gstatic.com/firebasejs/7.8.2/firebase-performance-standalone.js', firebaseConfig);
-
-	window.onload = () => {  
-		'use strict';     
-		if ('serviceWorker' in navigator) {     
-			navigator.serviceWorker  
-			.register('./sw.js'); 
-		} 
-	}
-
+   
+    /**
+    	Init Firebase Notification
+    */
     const messaging = firebase.messaging();
+
+    // init
     messaging
         .requestPermission()
         .then(function () {
@@ -229,9 +229,31 @@
             console.log("Unable to get permission to notify.", err);
         });
 
+    // on message    
     messaging.onMessage(function(payload) {
         console.log("Message received. ", payload);
     });
+
+    // on token refresh
+    messaging.onTokenRefresh(() => {
+  		messaging.getToken().then((refreshedToken) => {
+    		console.log('Token refreshed. '+refreshedToken);
+  		})
+  		.catch((err) => {
+    		console.log('Unable to retrieve refreshed token ', err);
+ 		});
+	});
+
+	/**
+		Service Worker
+	*/
+	window.onload = () => {  
+		'use strict';     
+		if ('serviceWorker' in navigator) {     
+			navigator.serviceWorker  
+			.register('./sw.js'); 
+		} 
+	}
 	</script>
 </body>
 
