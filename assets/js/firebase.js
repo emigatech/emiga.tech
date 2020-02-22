@@ -65,6 +65,6 @@ window.onload = () => {
 	'use strict';     
 	if ('serviceWorker' in navigator) {     
 		navigator.serviceWorker  
-		.register('https//emiga.tech/sw.js'); 
+		.register('./sw.js'); 
 	} 
 }
