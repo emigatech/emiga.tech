@@ -223,7 +223,7 @@
         .then(function () {
     
             messaging.getToken().then((currentToken) => {
-  				console.log('Token. ', currentToken);
+  				console.log('[EmiGa Notifications - Success] =>', currentToken);
             })
            	.catch((err) => {
   				console.log('An error occurred while retrieving token. ', err);
