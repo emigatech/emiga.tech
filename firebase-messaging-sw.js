@@ -13,16 +13,18 @@ firebase.initializeApp({
 });
 
 const messaging = firebase.messaging();
+messaging.setBackgroundMessageHandler(function (payload) {
+  console.log('Handling background message ', payload);
 
-messaging.setBackgroundMessageHandler(function(payload) {
-  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+  return self.registration.showNotification(payload.data.title, {
+    body: payload.data.body,
+    icon: payload.data.icon,
+    tag: payload.data.tag,
+    data: payload.data.link
+  });
+});
 
-  const notificationTitle = 'Background Message Title';
-  const notificationOptions = {
-    body: 'Background Message body.',
-    icon: 'https://emiga.tech/emiga-logo.png'
-  };
-
-  return self.registration.showNotification(notificationTitle,
-    notificationOptions);
+self.addEventListener('notificationclick', function(event) {
+  event.notification.close();
+  event.waitUntil(self.clients.openWindow(event.notification.data));
 });
