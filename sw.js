@@ -91,7 +91,6 @@ workbox.routing.registerRoute(
 );
 
 // runtime cache
-// 1. stylesheet
 workbox.routing.registerRoute(
     new RegExp('\.css$'),
     workbox.strategies.cacheFirst({
@@ -105,8 +104,19 @@ workbox.routing.registerRoute(
         ]
     })
 );
-
-// 2. images
+workbox.routing.registerRoute(
+    new RegExp('\.js$'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'js-cache',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxAgeSeconds: 60 * 60 * 24 * 7, // cache for one week
+                maxEntries: 20, // only cache 20 request
+                purgeOnQuotaError: true
+            })
+        ]
+    })
+);
 workbox.routing.registerRoute(
     new RegExp('\.(png|svg|jpg|jpeg|gif|json)$'),
     workbox.strategies.cacheFirst({
