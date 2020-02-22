@@ -223,15 +223,8 @@
         .then(function () {
     
             messaging.getToken().then((currentToken) => {
-  				if (currentToken) {
-				    sendTokenToServer(currentToken);
-				    updateUIForPushEnabled(currentToken);
-  				}
-  				else {
-   				 	updateUIForPushPermissionRequired();
-    				setTokenSentToServer(false);
-  			}})
-
+  				console.log('An error occurred while retrieving token. ', err);
+            })
            	.catch((err) => {
   				console.log('An error occurred while retrieving token. ', err);
   				setTokenSentToServer(false);
