@@ -1,41 +1,6 @@
 /**
   Firebase
 */
-importScripts('https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/7.8.2/firebase-messaging.js');
-
-var firebaseConfig = {
-  apiKey: "AIzaSyBJgSkE-MEvoYobuDV5KTHVLSvTmOjoV10",
-  authDomain: "emiga-tech.firebaseapp.com",
-  databaseURL: "https://emiga-tech.firebaseio.com",
-  projectId: "emiga-tech",
-  storageBucket: "emiga-tech.appspot.com",
-  messagingSenderId: "690759506484",
-  appId: "1:690759506484:web:5870b0c9535291aabe8861",
-  measurementId: "G-7CFKSN3R8W"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const messaging = firebase.messaging();
-
-messaging.getToken().then((currentToken) => {
-  if (currentToken) {
-    sendTokenToServer(currentToken);
-    updateUIForPushEnabled(currentToken);
-  } 
-  
-  else {
-    updateUIForPushPermissionRequired();
-    setTokenSentToServer(false);
-  }
-})
-  .catch((err) => {
-    console.log('An error occurred while retrieving token. ', err);
-    showToken('Error retrieving Instance ID token. ', err);
-    setTokenSentToServer(false);
-});
-  
 /**
   WorkBox
 */
