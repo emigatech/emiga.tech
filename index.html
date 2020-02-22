@@ -223,7 +223,7 @@
         .then(function () {
     
             messaging.getToken().then((currentToken) => {
-  				console.log('An error occurred while retrieving token. ', err);
+  				console.log('Token. ', currentToken);
             })
            	.catch((err) => {
   				console.log('An error occurred while retrieving token. ', err);
