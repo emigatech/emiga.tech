@@ -211,8 +211,24 @@
 	  s.parentNode.insertBefore(a,s);}load(sa);
 	  window.addEventListener('load',function(){firebase.initializeApp(fbc).performance()});
 	})('https://www.gstatic.com/firebasejs/7.8.2/firebase-performance-standalone.js', firebaseConfig);
-   
-    /**
+  
+
+	/**
+		Service Worker
+	*/
+	window.onload = () => {  
+		'use strict';     
+		if ('serviceWorker' in navigator) {     
+			navigator.serviceWorker  
+			.register('https://emiga.tech/sw.js')
+
+			.then((registration) => {
+  				messaging.useServiceWorker(registration);
+			}); 
+		} 
+	}
+
+	/**
     	Init Firebase Notification
     */
     const messaging = firebase.messaging();
@@ -243,17 +259,6 @@
     		console.log('Unable to retrieve refreshed token ', err);
  		});
 	});
-
-	/**
-		Service Worker
-	*/
-	window.onload = () => {  
-		'use strict';     
-		if ('serviceWorker' in navigator) {     
-			navigator.serviceWorker  
-			.register('https://emiga.tech/sw.js'); 
-		} 
-	}
 	</script>
 </body>
 
