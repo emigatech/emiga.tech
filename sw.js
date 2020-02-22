@@ -36,19 +36,6 @@ messaging.getToken().then((currentToken) => {
     setTokenSentToServer(false);
 });
   
-messaging.onTokenRefresh(() => {
-  messaging.getToken().then((refreshedToken) => {
-    setTokenSentToServer(false);
-    sendTokenToServer(refreshedToken);
-  })
-  .catch((err) => {
-    console.log('Unable to retrieve refreshed token ', err);
-    showToken('Unable to retrieve refreshed token ', err);
-  });
-});
-
-
-
 /**
   WorkBox
 */
