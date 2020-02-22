@@ -2,46 +2,37 @@
   Firebase
 */
 importScripts('https://www.gstatic.com/firebasejs/7.8.2/firebase-messaging.js');
+
 const messaging = firebase.messaging();
-  messaging.getToken().then((currentToken) => {
-    if (currentToken) {
-      sendTokenToServer(currentToken);
-      updateUIForPushEnabled(currentToken);
-    } 
-    else {
-      updateUIForPushPermissionRequired();
-      setTokenSentToServer(false);
-    }
-  })
+
+messaging.getToken().then((currentToken) => {
+  if (currentToken) {
+    sendTokenToServer(currentToken);
+    updateUIForPushEnabled(currentToken);
+  } 
+  
+  else {
+    updateUIForPushPermissionRequired();
+    setTokenSentToServer(false);
+  }
+})
   .catch((err) => {
     console.log('An error occurred while retrieving token. ', err);
     showToken('Error retrieving Instance ID token. ', err);
     setTokenSentToServer(false);
+});
+  
+messaging.onTokenRefresh(() => {
+  messaging.getToken().then((refreshedToken) => {
+    setTokenSentToServer(false);
+    sendTokenToServer(refreshedToken);
+  })
+  .catch((err) => {
+    console.log('Unable to retrieve refreshed token ', err);
+    showToken('Unable to retrieve refreshed token ', err);
   });
-  messaging.onTokenRefresh(() => {
-    messaging.getToken().then((refreshedToken) => {
-      setTokenSentToServer(false);
-      sendTokenToServer(refreshedToken);
-    })
-    .catch((err) => {
-      console.log('Unable to retrieve refreshed token ', err);
-      showToken('Unable to retrieve refreshed token ', err);
-    });
-  });
-  messaging.onMessage((payload) => {
-    console.log('Message received. ', payload);
-  });
-  messaging.setBackgroundMessageHandler(function(payload) {
-    console.log('[sw.js] Received background message ', payload);
-    const notificationTitle = 'Welcome to emiga.tech';
-    const notificationOptions = {
-      body: 'emiga.tech provides top technology news, with investigative reporting and in-depth coverage of tech issues and events. You know us.',
-      icon: 'https://emiga.tech/images/emiga-logo.png'
-    };
+});
 
-    return self.registration.showNotification(notificationTitle,
-      notificationOptions);
-  });
 
 
 /**
