@@ -26,9 +26,6 @@ label:focus,
     -webkit-appearance:none;
     box-shadow: none !important;
 }
-.download, .social {
-  display: none;
-}
 /**
   Scrool 
 */
@@ -53,7 +50,7 @@ body::-webkit-scrollbar-thumb {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display:         flex;
+  display: flex;
 }
 .row > [class*='col-'] {
 	 display: flex;
