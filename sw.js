@@ -19,12 +19,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-(function(sa,fbc){function load(f,c){var a=document.createElement('script');
-  a.async=1;a.src=f;var s=document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(a,s);}load(sa);
-  window.addEventListener('load',function(){firebase.initializeApp(fbc).performance()});
-})('https://www.gstatic.com/firebasejs/7.8.2/firebase-performance-standalone.js', firebaseConfig);
-
 const messaging = firebase.messaging();
 messaging.getToken().then((currentToken) => {
   if (currentToken) {

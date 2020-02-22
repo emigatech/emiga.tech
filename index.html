@@ -187,7 +187,14 @@
 		'use strict';     
 			if ('serviceWorker' in navigator) {     
 				navigator.serviceWorker  
-				.register('./sw.js'); 
+				.register('./sw.js')
+				.then(()=>{
+					(function(sa,fbc){function load(f,c){var a=document.createElement('script');
+					  a.async=1;a.src=f;var s=document.getElementsByTagName('script')[0];
+					  s.parentNode.insertBefore(a,s);}load(sa);
+					  window.addEventListener('load',function(){firebase.initializeApp(fbc).performance()});
+					})('https://www.gstatic.com/firebasejs/7.8.2/firebase-performance-standalone.js', firebaseConfig);
+				}); 
 			} 
 		}
 	</script>
@@ -195,7 +202,7 @@
 
 <!-- 
   (c) 2020 - emiga.tech
-  
+
   	[Privacy Policy] -- https://emiga.tech/privacy-policy
   	[Terms and Conditions] -- https://emiga.tech/terms-and-conditions
 
