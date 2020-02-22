@@ -222,12 +222,25 @@
         .requestPermission()
         .then(function () {
     
-            return messaging.getToken();
+            messaging.getToken().then((currentToken) => {
+  				if (currentToken) {
+				    sendTokenToServer(currentToken);
+				    updateUIForPushEnabled(currentToken);
+  				}
+  				else {
+   				 	updateUIForPushPermissionRequired();
+    				setTokenSentToServer(false);
+  			}})
+
+           	.catch((err) => {
+  				console.log('An error occurred while retrieving token. ', err);
+  				setTokenSentToServer(false);
+			});
         })
        
-        .catch(function (err) {
+    .catch(function (err) {
             console.log("Unable to get permission to notify.", err);
-        });
+    });
 
     // on message    
     messaging.onMessage(function(payload) {
