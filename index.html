@@ -209,7 +209,14 @@
 		'use strict';     
 		if ('serviceWorker' in navigator) {     
 			navigator.serviceWorker  
-			.register('./sw.js'); 
+			.register('./sw.js').then(()=>{
+				OneSignal.push(function() {
+  					OneSignal.registerForPushNotifications();
+				});
+				OneSignal.push(["getNotificationPermission", function(permission) {
+   					console.log("[emiga.tech] Site Notification Permission:", permission);
+				}]);
+			}); 
 		} 
 	}
 	</script>
