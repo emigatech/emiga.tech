@@ -57,14 +57,3 @@ messaging.onTokenRefresh(() => {
     	console.log('Unable to retrieve refreshed token ', err);
  	});
 });
-
-/**
-	Service Worker
-*/
-window.onload = () => {  
-	'use strict';     
-	if ('serviceWorker' in navigator) {     
-		navigator.serviceWorker  
-		.register('./sw.js'); 
-	} 
-}
