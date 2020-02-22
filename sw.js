@@ -1,6 +1,9 @@
 /**
   Firebase
 */
+importScripts('https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/7.8.2/firebase-messaging.js');
+
 const messaging = firebase.messaging();
 
 messaging.getToken().then((currentToken) => {
