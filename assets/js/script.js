@@ -137,8 +137,10 @@ $( document ).ready(function() {
 
         $('#emiga-app').append(PostHtml(String(i),String(date),String(url),String(title),String(image),String(content),String(description),String(author),String(source_name)));
         lazy.update();
+
         	// Yandex
-        	(function(w, d, n, s, t) {
+        	
+		    (function(w, d, n, s, t) {
 		        w[n] = w[n] || [];
 		        w[n].push(function() {
 		            Ya.Context.AdvManager.render({
@@ -154,7 +156,7 @@ $( document ).ready(function() {
 		        s.src = "//an.yandex.ru/system/context.js";
 		        s.async = true;
 		        t.parentNode.insertBefore(s, t);
-	    	})(this, this.document, "yandexContextAsyncCallbacks");
+		    })(this, this.document, "yandexContextAsyncCallbacks");
       }
     },
 
