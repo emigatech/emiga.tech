@@ -2,32 +2,31 @@
 
 const CACHE = "emiga-tech-v-1.4.2";
 
-const precacheFiles = [{
-  "/",
-  "/index.html",
-  "/OneSignalSDKUpdaterWorker.js",
-  "/OneSignalSDKWorker.js",
-  "/manifest.json",
-  "/search.xml",
-  "/assets/dist/style.min.css",
-  "/images/apple-icon-57x57.png",
-  "/images/apple-icon-60x60.png",
-  "/images/apple-icon-72x72.png",
-  "/images/apple-icon-76x76.png",
-  "/images/apple-icon-114x114.png",
-  "/images/apple-icon-120x120.png",
-  "/images/apple-icon-144x144.png",
-  "/images/apple-icon-152x152.png",
-  "/images/apple-icon-180x180.png",
-  "/images/android-icon-192x192.png",
-  "/images/favicon-32x32.png",
-  "/images/favicon-96x96.png",
-  "/images/favicon-16x16.png",
-  "/images/ms-icon-144x144.png",
-  "/images/browserconfig.xml",
-  "/images/emiga-logo.png",
-  "/assets/dist/script.min.js"
-}];
+const precacheFiles = [
+  "index.html",
+  "OneSignalSDKUpdaterWorker.js",
+  "OneSignalSDKWorker.js",
+  "manifest.json",
+  "search.xml",
+  "assets/dist/style.min.css",
+  "images/apple-icon-57x57.png",
+  "images/apple-icon-60x60.png",
+  "images/apple-icon-72x72.png",
+  "images/apple-icon-76x76.png",
+  "images/apple-icon-114x114.png",
+  "images/apple-icon-120x120.png",
+  "images/apple-icon-144x144.png",
+  "images/apple-icon-152x152.png",
+  "images/apple-icon-180x180.png",
+  "images/android-icon-192x192.png",
+  "images/favicon-32x32.png",
+  "images/favicon-96x96.png",
+  "images/favicon-16x16.png",
+  "images/ms-icon-144x144.png",
+  "images/browserconfig.xml",
+  "images/emiga-logo.png",
+  "assets/dist/script.min.js"
+];
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
 const offlineFallbackPage = "index.html";
@@ -70,8 +69,8 @@ self.addEventListener("install", function (event) {
       console.log("[emiga.tech] Caching pages during install");
 
       return cache.addAll(precacheFiles).then(function () {
-        if (offlineFallbackPage === "index.html") {
-          return cache.add(new Response());
+        if (offlineFallbackPage === "ToDo-replace-this-name.html") {
+          return cache.add(new Response("TODO: Update the value of the offlineFallbackPage constant in the serviceworker."));
         }
 
         return cache.add(offlineFallbackPage);
