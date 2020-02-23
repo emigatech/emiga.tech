@@ -86,6 +86,11 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
+  'https://cdn.onesignal.com/sdks/OneSignalSDK.js',
+  new workbox.strategies.CacheFirst(),
+);
+
+workbox.routing.registerRoute(
   ({ event }) => event.request.mode === 'navigate',
   ({ url }) => fetch(url.href).catch(() => caches.match('/'))
 );
