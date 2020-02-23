@@ -67,7 +67,7 @@ $( document ).ready(function() {
                 </div>
               </div>
 			  
-			  <div id="emiga_hello_`+id+`"></div>
+			  <div id="emiga_hello_`+id+`" class="p-0"></div>
 
             </div>
           </div>
@@ -134,9 +134,7 @@ $( document ).ready(function() {
       	{
 		
 			date=data.articles[i].publishedAt,image=data.articles[i].urlToImage,title=data.articles[i].title,description=data.articles[i].description,url=data.articles[i].url,content=data.articles[i].content,author=data.articles[i].author,source_name=data.articles[i].source.name,"null"==date&&date,"null"==image&&date,"null"==title&&date,"null"==description&&date,"null"==url&&date,"null"==content&&date,"null"==author&&date,"null"==source_name&&date;
-
-	        $('#emiga-app').append(PostHtml(String(i),String(date),String(url),String(title),String(image),String(content),String(description),String(author),String(source_name)));
-	        lazy.update();
+	        $('#emiga-app').append(PostHtml(String(i),String(date),String(url),String(title),String(image),String(content),String(description),String(author),String(source_name)));	        lazy.update();
       	}
     },
 
@@ -152,6 +150,29 @@ $( document ).ready(function() {
 			</br>
 		<h6>Please check your network connection.</h6>`);
     }
+  })
+  .done(function(data){
+
+      	for(var i = 0; i < data.articles.length; i++)
+      	{
+			(function(w, d, n, s, t) {
+			    w[n] = w[n] || [];
+			    w[n].push(function() {
+				    Ya.Context.AdvManager.render({
+				        blockId: "R-A-518913-2",
+				        renderTo: "emiga_hello_"+i,
+				        async: true,
+				        pageNumber: i
+				    });
+				});
+				t = d.getElementsByTagName("script")[0];
+				s = d.createElement("script");
+				s.type = "text/javascript";
+				s.src = "//an.yandex.ru/system/context.js";
+				s.async = true;
+				t.parentNode.insertBefore(s, t);
+			})(this, this.document, "yandexContextAsyncCallbacks");		
+      	}		    
   });
 
 	$(window).scroll(function(e) {
