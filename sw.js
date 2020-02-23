@@ -11,8 +11,6 @@ workbox.core.setCacheNameDetails({
 });
 
 workbox.googleAnalytics.initialize();
-workbox.core.skipWaiting();
-workbox.core.clientsClaim();
 
 workbox.routing.registerRoute(
   '/',
