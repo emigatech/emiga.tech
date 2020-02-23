@@ -2,15 +2,13 @@
 
 const CACHE = "emiga-tech-v-1.4.2";
 
-const precacheFiles = [
+const precacheFiles = [{
   "/",
   "/index.html",
   "/OneSignalSDKUpdaterWorker.js",
   "/OneSignalSDKWorker.js",
   "/manifest.json",
   "/search.xml",
-  "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
-  "https://unpkg.com/aos@2.3.1/dist/aos.css",
   "/assets/dist/style.min.css",
   "/images/apple-icon-57x57.png",
   "/images/apple-icon-60x60.png",
@@ -28,15 +26,8 @@ const precacheFiles = [
   "/images/ms-icon-144x144.png",
   "/images/browserconfig.xml",
   "/images/emiga-logo.png",
-  "https://code.jquery.com/jquery-3.4.1.min.js",
-  "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js",
-  "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js",
-  "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js",
-  "https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js",
-  "https://unpkg.com/aos@2.3.1/dist/aos.js",
   "/assets/dist/script.min.js"
-  "https://cdn.onesignal.com/sdks/OneSignalSDK.js",
-];
+}];
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
 const offlineFallbackPage = "index.html";
