@@ -26,7 +26,7 @@ const precacheFiles = [
   "images/browserconfig.xml",
   "images/emiga-logo.png",
   "assets/dist/script.min.js",
-  "assets/cdn/bootstrap.min.css".
+  "assets/cdn/bootstrap.min.css",
   "assets/cdn/aos.css",
   "assets/cdn/jquery-3.4.1.min.js",
   "assets/cdn/popper.min.js",
