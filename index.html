@@ -202,38 +202,36 @@
 			navigator.serviceWorker  
 			.register('./sw.js').then(()=>{
 				console.log('[emiga.tech] => Service Worker registered')
-			})
-			.then(()=>{
-				var OneSignal = window.OneSignal || [];
-			    OneSignal.push(function() {
-			      OneSignal.init({
-			        appId: "4baf2d5b-10b0-47a6-8c12-8ac790a45afc",
-			        safari_web_id: "web.onesignal.auto.5ecc7e9f-2540-4c26-bcd6-80ea5ac40604",
-			        autoResubscribe: true,
-			        notifyButton: {
-			          enable: false,
-			        },
-			        welcomeNotification: {
-			          "title": "Welcome to emiga.tech",
-			          "message": "Thanks for subscribing!",
-			          "url": "https://emiga.tech/?ref=notification.subscribed" 
-			        }
-			      })
-			      .then(()=>{
-			        if (OneSignal.isPushNotificationsSupported()) {
-				        OneSignal.push(function() {
-				        	OneSignal.showNativePrompt();
-				  			OneSignal.registerForPushNotifications();
-						})
-						OneSignal.push(["getNotificationPermission", function(permission) {
-				   			console.log("[emiga.tech] => Notification Permission:", permission);
-						}]);
-			        }   
-			   	  });
-			    });
-			}); 
+			});
 		} 
 	}
+	
+	var OneSignal = window.OneSignal || [];
+		  OneSignal.push(function() {
+		    OneSignal.init({
+		        appId: "4baf2d5b-10b0-47a6-8c12-8ac790a45afc",
+		        safari_web_id: "web.onesignal.auto.5ecc7e9f-2540-4c26-bcd6-80ea5ac40604",
+		        autoResubscribe: true,
+		        notifyButton: {
+		        enable: false,
+		    },
+		    welcomeNotification: {
+		        "title": "Welcome to emiga.tech",
+		        "message": "Thanks for subscribing!",
+		        "url": "https://emiga.tech/?ref=notification.subscribed" 
+		    }})
+		    .then(()=>{
+			    if (OneSignal.isPushNotificationsSupported()) {
+				    OneSignal.push(function() {
+				       	OneSignal.showNativePrompt();
+				  		OneSignal.registerForPushNotifications();
+					});
+					OneSignal.push(["getNotificationPermission", function(permission) {
+				   		console.log("[emiga.tech] => Notification Permission:", permission);
+					}]);
+			    }   
+			});
+	});
 	</script>
 </body>
 <!-- 
