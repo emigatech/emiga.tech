@@ -194,18 +194,8 @@
 	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
 	<script type="text/javascript">
 	/**
-		Service Worker
-	*/	
-	window.onload = () => {  
-		'use strict';     
-		if ('serviceWorker' in navigator) {     
-			navigator.serviceWorker  
-			.register('./sw.js').then(()=>{
-				console.log('[emiga.tech] => Service Worker registered')
-			});
-		} 
-	}
-	
+		One Signal
+	*/
 	var OneSignal = window.OneSignal || [];
 		  OneSignal.push(function() {
 		    OneSignal.init({
@@ -232,6 +222,18 @@
 			    }   
 			});
 	});
+	/**
+		Service Worker
+	*/	
+	window.onload = () => {  
+		'use strict';     
+		if ('serviceWorker' in navigator) {     
+			navigator.serviceWorker  
+			.register('./sw.js').then(()=>{
+				console.log('[emiga.tech] => Service Worker registered')
+			});
+		} 
+	}		  
 	</script>
 </body>
 <!-- 
