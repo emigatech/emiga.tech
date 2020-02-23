@@ -135,6 +135,8 @@ $( document ).ready(function() {
 		
 			date=data.articles[i].publishedAt,image=data.articles[i].urlToImage,title=data.articles[i].title,description=data.articles[i].description,url=data.articles[i].url,content=data.articles[i].content,author=data.articles[i].author,source_name=data.articles[i].source.name,"null"==date&&date,"null"==image&&date,"null"==title&&date,"null"==description&&date,"null"==url&&date,"null"==content&&date,"null"==author&&date,"null"==source_name&&date;
 	        $('#emiga-app').append(PostHtml(String(i),String(date),String(url),String(title),String(image),String(content),String(description),String(author),String(source_name)));	        lazy.update();
+      		
+      		var emiga_hello_i = i;
       	}
     },
 
@@ -164,4 +166,31 @@ $( document ).ready(function() {
 
 	});
 
+	i = 0,
+	timer = setInterval(function(){
+	   emiga_hello(i,'R-A-518913-2');
+	i++	           
+	    if (i === 10) {
+	        clearInterval(timer);
+	    }
+	},500);
+	function emiga_hello(i,id) {
+		(function(w, d, n, s, t) {
+	    w[n] = w[n] || [];
+	    w[n].push(function() {
+		    Ya.Context.AdvManager.render({
+			        blockId: id,
+		        renderTo: "emiga_hello_"+i,
+		        async: true,
+		        pageNumber: i
+		    });
+		});
+		t = d.getElementsByTagName("script")[0];
+		s = d.createElement("script");
+		s.type = "text/javascript";
+		s.src = "//an.yandex.ru/system/context.js";
+		s.async = true;
+		t.parentNode.insertBefore(s, t);
+		})(this, this.document, "yandexContextAsyncCallbacks");
+	}
 });
