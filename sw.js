@@ -3,45 +3,39 @@
 */
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
 
-workbox.googleAnalytics.initialize();
-
 workbox.core.setCacheNameDetails({
   prefix: 'emiga-tech',
   suffix: 'v1.4.1',
   precache: 'emiga-tech-custom-precache-name',
   runtime: 'emiga-tech-custom-runtime-name'
 });
+
+workbox.googleAnalytics.initialize();
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
-
 workbox.routing.registerRoute(
-  '/index.html',
+  './assets/dist/style.min.css',
   new workbox.strategies.CacheFirst(),
 );
 
 workbox.routing.registerRoute(
-  '/',
+  './assets/dist/script.min.js',
   new workbox.strategies.CacheFirst(),
 );
 
 workbox.routing.registerRoute(
-  '/search.xml',
+  './assets/emiga-logo.png',
   new workbox.strategies.CacheFirst(),
 );
 
 workbox.routing.registerRoute(
-  '/assets/dist/style.min.css',
+  './OneSignalSDKUpdaterWorker.js',
   new workbox.strategies.CacheFirst(),
 );
 
 workbox.routing.registerRoute(
-  '/assets/dist/script.min.js',
-  new workbox.strategies.CacheFirst(),
-);
-
-workbox.routing.registerRoute(
-  '/assets/emiga-logo.png',
+  './OneSignalSDKWorker.js',
   new workbox.strategies.CacheFirst(),
 );
 
@@ -81,22 +75,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  'https://unpkg.com/aos@2.3.1/dist/aos.js',
-  new workbox.strategies.CacheFirst(),
-);
-
-workbox.routing.registerRoute(
   'https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js',
-  new workbox.strategies.CacheFirst(),
-);
-
-workbox.routing.registerRoute(
-  '/OneSignalSDKUpdaterWorker.js',
-  new workbox.strategies.CacheFirst(),
-);
-
-workbox.routing.registerRoute(
-  '/OneSignalSDKWorker.js',
   new workbox.strategies.CacheFirst(),
 );
 
