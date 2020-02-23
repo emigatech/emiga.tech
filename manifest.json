@@ -2,14 +2,16 @@
  "name": "emiga.tech",
  "version": "1.4.1",
  "description": "emiga.tech provides top technology news, with investigative reporting and in-depth coverage of tech issues and events. You know us.",
- "orientation": "portrait",
  "short_name": "emiga.tech", 
  "lang": "en-US",     
- "start_url": "/index.html", 
+ "start_url": "/index.html?v=1.4.1", 
  "display": "standalone",  
  "background_color": "#ffffff",   
  "theme_color": "#f3f3f3",
- "permissions": ["gcm", "storage", "notifications", "identity", "browser"],
+ "related_applications": [{
+    "platform": "web",
+    "url": "https://emiga.tech/?v=1.4.1"
+ }],
  "icons": [
   {
    "src": "\/images\/android-icon-36x36.png",

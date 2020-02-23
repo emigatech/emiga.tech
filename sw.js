@@ -81,12 +81,22 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
+  'https://unpkg.com/aos@2.3.1/dist/aos.js',
+  new workbox.strategies.CacheFirst(),
+);
+
+workbox.routing.registerRoute(
   'https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js',
   new workbox.strategies.CacheFirst(),
 );
 
 workbox.routing.registerRoute(
-  'https://cdn.onesignal.com/sdks/OneSignalSDK.js',
+  '/OneSignalSDKUpdaterWorker.js',
+  new workbox.strategies.CacheFirst(),
+);
+
+workbox.routing.registerRoute(
+  '/OneSignalSDKWorker.js',
   new workbox.strategies.CacheFirst(),
 );
 
