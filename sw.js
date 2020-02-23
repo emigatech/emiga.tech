@@ -15,6 +15,16 @@ workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
 workbox.routing.registerRoute(
+  '/?v=1.4.1',
+  new workbox.strategies.CacheFirst(),
+);
+
+workbox.routing.registerRoute(
+  '/index.html?v='+'1.4.1',
+  new workbox.strategies.CacheFirst(),
+);
+
+workbox.routing.registerRoute(
   './assets/dist/style.min.css',
   new workbox.strategies.CacheFirst(),
 );
