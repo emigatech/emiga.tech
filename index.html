@@ -133,6 +133,7 @@
   				<span class="sr-only">Loading...</span>
 			</div>
 		</div>
+		<div class="emiga-hello w-100 bg-light border text-center"></div>
 		<div id="error-text" class="text-center"></div>
 		<div id="emiga-app" class="row pt-3"></div>
 	</div><!-- app -->
@@ -230,6 +231,23 @@
 	      });
 	  }
 	}	  
+
+    (function(w, d, n, s, t) {
+        w[n] = w[n] || [];
+        w[n].push(function() {
+            Ya.Context.AdvManager.render({
+                blockId: "R-A-518913-3",
+                renderTo: $(".emiga-hello"),
+                async: true
+            });
+        });
+        t = d.getElementsByTagName("script")[0];
+        s = d.createElement("script");
+        s.type = "text/javascript";
+        s.src = "//an.yandex.ru/system/context.js";
+        s.async = true;
+        t.parentNode.insertBefore(s, t);
+    })(this, this.document, "yandexContextAsyncCallbacks");
 	</script>
 </body>
 <!-- 
