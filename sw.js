@@ -42,6 +42,10 @@ const offlineFallbackPage = "index.html";
 const networkFirstPaths = [
   /* Add an array of regex of paths that should go network first */
   // Example: /\/api\/.*/
+  "\b(\w*152945cf366446688129bd121c63cd5c\w*)\b",
+  "\b(\w*www.googletagmanager.com\w*)\b",
+  "\b(\w*cdn.onesignal.com\w*)\b",
+  "\b(\w*www.gstatic.com\w*)\b"
 ];
 
 const avoidCachingPaths = [
