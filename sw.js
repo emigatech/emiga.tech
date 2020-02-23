@@ -15,12 +15,12 @@ workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
 workbox.routing.registerRoute(
-  '/?v=1.4.1',
+  '/',
   new workbox.strategies.CacheFirst(),
 );
 
 workbox.routing.registerRoute(
-  '/index.html?v='+'1.4.1',
+  '/index.html',
   new workbox.strategies.CacheFirst(),
 );
 
@@ -102,7 +102,7 @@ workbox.routing.registerRoute(
         plugins: [
             new workbox.expiration.Plugin({
                 maxAgeSeconds: 60 * 60 * 24 * 7, // cache for one week
-                maxEntries: 20, // only cache 20 request
+                maxEntries: 10000, // only cache 20 request
                 purgeOnQuotaError: true
             })
         ]
@@ -115,7 +115,7 @@ workbox.routing.registerRoute(
         plugins: [
             new workbox.expiration.Plugin({
                 maxAgeSeconds: 60 * 60 * 24 * 7, // cache for one week
-                maxEntries: 20, // only cache 20 request
+                maxEntries: 10000, // only cache 20 request
                 purgeOnQuotaError: true
             })
         ]
@@ -128,7 +128,7 @@ workbox.routing.registerRoute(
         plugins: [
             new workbox.expiration.Plugin({
                 maxAgeSeconds: 60 * 60 * 24 * 7,
-                maxEntries: 50,
+                maxEntries: 10000,
                 purgeOnQuotaError: true
             })
         ]
