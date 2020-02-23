@@ -1,136 +1,189 @@
-/**
-  WorkBox
-*/
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
+//This is the service worker with the Advanced caching
 
-workbox.core.setCacheNameDetails({
-  prefix: 'emiga-tech',
-  suffix: 'v1.4.1',
-  precache: 'emiga-tech-custom-precache-name',
-  runtime: 'emiga-tech-custom-runtime-name'
+const CACHE = "emiga-tech-v-1.4.2";
+
+const precacheFiles = [
+  "/",
+  "/index.html",
+  "/OneSignalSDKUpdaterWorker.js",
+  "/OneSignalSDKWorker.js",
+  "/manifest.json",
+  "/search.xml",
+  "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
+  "https://unpkg.com/aos@2.3.1/dist/aos.css",
+  "/assets/dist/style.min.css",
+  "/images/apple-icon-57x57.png",
+  "/images/apple-icon-60x60.png",
+  "/images/apple-icon-72x72.png",
+  "/images/apple-icon-76x76.png",
+  "/images/apple-icon-114x114.png",
+  "/images/apple-icon-120x120.png",
+  "/images/apple-icon-144x144.png",
+  "/images/apple-icon-152x152.png",
+  "/images/apple-icon-180x180.png",
+  "/images/android-icon-192x192.png",
+  "/images/favicon-32x32.png",
+  "/images/favicon-96x96.png",
+  "/images/favicon-16x16.png",
+  "/images/ms-icon-144x144.png",
+  "/images/browserconfig.xml",
+  "/images/emiga-logo.png",
+  "https://code.jquery.com/jquery-3.4.1.min.js",
+  "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js",
+  "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js",
+  "https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js",
+  "https://unpkg.com/aos@2.3.1/dist/aos.js",
+  "/assets/dist/script.min.js"
+  "https://cdn.onesignal.com/sdks/OneSignalSDK.js",
+];
+
+// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
+const offlineFallbackPage = "index.html";
+
+const networkFirstPaths = [
+  /* Add an array of regex of paths that should go network first */
+  // Example: /\/api\/.*/
+];
+
+const avoidCachingPaths = [
+  /* Add an array of regex of paths that shouldn't be cached */
+  // Example: /\/api\/.*/
+];
+
+function pathComparer(requestUrl, pathRegEx) {
+  return requestUrl.match(new RegExp(pathRegEx));
+}
+
+function comparePaths(requestUrl, pathsArray) {
+  if (requestUrl) {
+    for (let index = 0; index < pathsArray.length; index++) {
+      const pathRegEx = pathsArray[index];
+      if (pathComparer(requestUrl, pathRegEx)) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+self.addEventListener("install", function (event) {
+  console.log("[emiga.tech] Install Event processing");
+
+  console.log("[emiga.tech] Skip waiting on install");
+  self.skipWaiting();
+
+  event.waitUntil(
+    caches.open(CACHE).then(function (cache) {
+      console.log("[emiga.tech] Caching pages during install");
+
+      return cache.addAll(precacheFiles).then(function () {
+        if (offlineFallbackPage === "index.html") {
+          return cache.add(new Response());
+        }
+
+        return cache.add(offlineFallbackPage);
+      });
+    })
+  );
 });
 
-workbox.googleAnalytics.initialize();
+// Allow sw to control of current page
+self.addEventListener("activate", function (event) {
+  console.log("[emiga.tech] Claiming clients for current page");
+  event.waitUntil(self.clients.claim());
+});
 
-workbox.routing.registerRoute(
-  '/',
-  new workbox.strategies.CacheFirst(),
-);
+// If any fetch fails, it will look for the request in the cache and serve it from there first
+self.addEventListener("fetch", function (event) {
+  if (event.request.method !== "GET") return;
 
-workbox.routing.registerRoute(
-  '/index.html',
-  new workbox.strategies.CacheFirst(),
-);
+  if (comparePaths(event.request.url, networkFirstPaths)) {
+    networkFirstFetch(event);
+  } else {
+    cacheFirstFetch(event);
+  }
+});
 
-workbox.routing.registerRoute(
-  './assets/dist/style.min.css',
-  new workbox.strategies.CacheFirst(),
-);
+function cacheFirstFetch(event) {
+  event.respondWith(
+    fromCache(event.request).then(
+      function (response) {
+        // The response was found in the cache so we responde with it and update the entry
 
-workbox.routing.registerRoute(
-  './assets/dist/script.min.js',
-  new workbox.strategies.CacheFirst(),
-);
+        // This is where we call the server to get the newest version of the
+        // file to use the next time we show view
+        event.waitUntil(
+          fetch(event.request).then(function (response) {
+            return updateCache(event.request, response);
+          })
+        );
 
-workbox.routing.registerRoute(
-  './assets/emiga-logo.png',
-  new workbox.strategies.CacheFirst(),
-);
+        return response;
+      },
+      function () {
+        // The response was not found in the cache so we look for it on the server
+        return fetch(event.request)
+          .then(function (response) {
+            // If request was success, add or update it in the cache
+            event.waitUntil(updateCache(event.request, response.clone()));
 
-workbox.routing.registerRoute(
-  './OneSignalSDKUpdaterWorker.js',
-  new workbox.strategies.CacheFirst(),
-);
+            return response;
+          })
+          .catch(function (error) {
+            // The following validates that the request was for a navigation to a new document
+            if (event.request.destination !== "document" || event.request.mode !== "navigate") {
+              return;
+            }
 
-workbox.routing.registerRoute(
-  './OneSignalSDKWorker.js',
-  new workbox.strategies.CacheFirst(),
-);
+            console.log("[emiga.tech] Network request failed and no cache." + error);
+            // Use the precached offline page as fallback
+            return caches.open(CACHE).then(function (cache) {
+              cache.match(offlineFallbackPage);
+            });
+          });
+      }
+    )
+  );
+}
 
-workbox.routing.registerRoute(
-  'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css',
-  new workbox.strategies.CacheFirst(),
-);
+function networkFirstFetch(event) {
+  event.respondWith(
+    fetch(event.request)
+      .then(function (response) {
+        // If request was success, add or update it in the cache
+        event.waitUntil(updateCache(event.request, response.clone()));
+        return response;
+      })
+      .catch(function (error) {
+        console.log("[emiga.tech] Network request Failed. Serving content from cache: " + error);
+        return fromCache(event.request);
+      })
+  );
+}
 
-workbox.routing.registerRoute(
-  'https://unpkg.com/aos@2.3.1/dist/aos.css',
-  new workbox.strategies.CacheFirst(),
-);
+function fromCache(request) {
+  // Check to see if you have it in the cache
+  // Return response
+  // If not in the cache, then return error page
+  return caches.open(CACHE).then(function (cache) {
+    return cache.match(request).then(function (matching) {
+      if (!matching || matching.status === 404) {
+        return Promise.reject("no-match");
+      }
 
-workbox.routing.registerRoute(
-  'https://code.jquery.com/jquery-3.4.1.min.js',
-  new workbox.strategies.CacheFirst(),
-);
+      return matching;
+    });
+  });
+}
 
-workbox.routing.registerRoute(
-  'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js',
-  new workbox.strategies.CacheFirst(),
-);
+function updateCache(request, response) {
+  if (!comparePaths(request.url, avoidCachingPaths)) {
+    return caches.open(CACHE).then(function (cache) {
+      return cache.put(request, response);
+    });
+  }
 
-workbox.routing.registerRoute(
-  'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js',
-  new workbox.strategies.CacheFirst(),
-);
-
-workbox.routing.registerRoute(
-  'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js',
-  new workbox.strategies.CacheFirst(),
-);
-
-workbox.routing.registerRoute(
-  'https://unpkg.com/aos@2.3.1/dist/aos.js',
-  new workbox.strategies.CacheFirst(),
-);
-
-workbox.routing.registerRoute(
-  'https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js',
-  new workbox.strategies.CacheFirst(),
-);
-
-workbox.routing.registerRoute(
-  ({ event }) => event.request.mode === 'navigate',
-  ({ url }) => fetch(url.href).catch(() => caches.match('/'))
-);
-
-// runtime cache
-workbox.routing.registerRoute(
-    new RegExp('\.css$'),
-    workbox.strategies.cacheFirst({
-        cacheName: 'css-cache',
-        plugins: [
-            new workbox.expiration.Plugin({
-                maxAgeSeconds: 60 * 60 * 24 * 7, // cache for one week
-                maxEntries: 10000, // only cache 20 request
-                purgeOnQuotaError: true
-            })
-        ]
-    })
-);
-workbox.routing.registerRoute(
-    new RegExp('\.js$'),
-    workbox.strategies.cacheFirst({
-        cacheName: 'js-cache',
-        plugins: [
-            new workbox.expiration.Plugin({
-                maxAgeSeconds: 60 * 60 * 24 * 7, // cache for one week
-                maxEntries: 10000, // only cache 20 request
-                purgeOnQuotaError: true
-            })
-        ]
-    })
-);
-workbox.routing.registerRoute(
-    new RegExp('\.(png|svg|jpg|jpeg|gif|json)$'),
-    workbox.strategies.cacheFirst({
-        cacheName: 'image-cache',
-        plugins: [
-            new workbox.expiration.Plugin({
-                maxAgeSeconds: 60 * 60 * 24 * 7,
-                maxEntries: 10000,
-                purgeOnQuotaError: true
-            })
-        ]
-    })
-);
-
-workbox.precaching.precacheAndRoute([]);
+  return Promise.resolve();
+}
