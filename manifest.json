@@ -1,5 +1,15 @@
 {
  "name": "emiga.tech",
+ "version": "1.4.1",
+ "description": "emiga.tech provides top technology news, with investigative reporting and in-depth coverage of tech issues and events. You know us.",
+ "orientation": "portrait",
+ "short_name": "emiga.tech", 
+ "lang": "en-US",     
+ "start_url": "/index.html", 
+ "display": "standalone",  
+ "background_color": "#ffffff",   
+ "theme_color": "#f3f3f3",
+ "permissions": ["gcm", "storage", "notifications", "identity", "browser"],
  "icons": [
   {
    "src": "\/images\/android-icon-36x36.png",
@@ -37,12 +47,5 @@
    "type": "image\/png",
    "density": "4.0"
   }
- ],
- "short_name": "emiga.tech", 
-  "lang": "en-US",     
-  "start_url": "/index.html", 
-  "display": "standalone",  
-  "background_color": "#ffffff",   
-  "theme_color": "#f3f3f3",
-  "gcm_sender_id": "690759506484" 
+ ]
 }
