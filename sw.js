@@ -25,7 +25,15 @@ const precacheFiles = [
   "images/ms-icon-144x144.png",
   "images/browserconfig.xml",
   "images/emiga-logo.png",
-  "assets/dist/script.min.js"
+  "assets/dist/script.min.js",
+  "assets/cdn/bootstrap.min.css".
+  "assets/cdn/aos.css".
+  "assets/cdn/jquery-3.4.1.min.js",
+  "assets/cdn/popper.min.js",
+  "assets/cdn/bootstrap.min.js",
+  "assets/cdn/moment.min.js",
+  "assets/cdn/lazyload.min.js",
+  "assets/cdn/aos.js"
 ];
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
