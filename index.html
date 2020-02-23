@@ -32,7 +32,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
-	
+
 	<!-- App Assets -->
 	<link rel="stylesheet" href="assets/dist/style.min.css">
 	<script src="assets/dist/script.min.js" defer type="text/javascript"></script>
@@ -225,11 +225,9 @@
 				        	OneSignal.showNativePrompt();
 				  			OneSignal.registerForPushNotifications();
 						})
-						.then(()=>{
-							OneSignal.push(["getNotificationPermission", function(permission) {
-				   				console.log("[emiga.tech] Site Notification Permission:", permission);
-							}]);
-						});
+						OneSignal.push(["getNotificationPermission", function(permission) {
+				   			console.log("[emiga.tech] Site Notification Permission:", permission);
+						}]);
 			        }   
 			   	  });
 			    });
