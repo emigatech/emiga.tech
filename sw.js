@@ -1,6 +1,6 @@
 //This is the service worker with the Advanced caching
 
-const CACHE = "emiga-tech-v-1.4.2";
+const CACHE = "emiga-tech-v-1.4.3";
 
 const precacheFiles = [
   "index.html",
@@ -8,7 +8,7 @@ const precacheFiles = [
   "OneSignalSDKWorker.js",
   "manifest.json",
   "search.xml",
-  "assets/dist/style.min.css",
+  "assets/css/style.css",
   "images/apple-icon-57x57.png",
   "images/apple-icon-60x60.png",
   "images/apple-icon-72x72.png",
@@ -25,7 +25,8 @@ const precacheFiles = [
   "images/ms-icon-144x144.png",
   "images/browserconfig.xml",
   "images/emiga-logo.png",
-  "assets/dist/script.min.js",
+  "assets/js/script.js",
+  "assets/js/firebase.js",
   "assets/cdn/bootstrap.min.css",
   "assets/cdn/aos.css",
   "assets/cdn/jquery-3.4.1.min.js",

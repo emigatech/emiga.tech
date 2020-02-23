@@ -27,7 +27,7 @@ $( document ).ready(function() {
   })(window.location.search.substr(1).split('&'));
 
   // Posting
-  function PostHtml(date,url,title,image,content,description,author,source_name) {
+  function PostHtml(id,date,url,title,image,content,description,author,source_name) {
 
   	return `
           <div data-aos="fade-down"  data-aos-offset="0" class="col-12 border mt-1 mb-1 w-100">
@@ -60,12 +60,14 @@ $( document ).ready(function() {
                   </div>
                 </div>
               </div>
-
+			  
               <div class="d-flex justify-content-between pt-2 pb-2">
                 <div>
                   <h6 class="text-muted d-sm-none d-md-block">by <b>`+filterXSS(author)+`</b> on `+filterXSS(source_name)+`</h6>
                 </div>
               </div>
+			  
+			  <div id="emiga_hello_`+id+`"></div>
 
             </div>
           </div>
@@ -133,9 +135,26 @@ $( document ).ready(function() {
 		
 		date=data.articles[i].publishedAt,image=data.articles[i].urlToImage,title=data.articles[i].title,description=data.articles[i].description,url=data.articles[i].url,content=data.articles[i].content,author=data.articles[i].author,source_name=data.articles[i].source.name,"null"==date&&date,"null"==image&&date,"null"==title&&date,"null"==description&&date,"null"==url&&date,"null"==content&&date,"null"==author&&date,"null"==source_name&&date;
 
-        $('#emiga-app').append(PostHtml(String(date),String(url),String(title),String(image),String(content),String(description),String(author),String(source_name)));
-
+        $('#emiga-app').append(PostHtml(String(i),String(date),String(url),String(title),String(image),String(content),String(description),String(author),String(source_name)));
         lazy.update();
+        	// Yandex
+        	(function(w, d, n, s, t) {
+		        w[n] = w[n] || [];
+		        w[n].push(function() {
+		            Ya.Context.AdvManager.render({
+		                blockId: "R-A-518913-2",
+		                renderTo: "emiga_hello_"+i,
+		                async: true,
+		                pageNumber: i
+		            });
+		        });
+		        t = d.getElementsByTagName("script")[0];
+		        s = d.createElement("script");
+		        s.type = "text/javascript";
+		        s.src = "//an.yandex.ru/system/context.js";
+		        s.async = true;
+		        t.parentNode.insertBefore(s, t);
+	    	})(this, this.document, "yandexContextAsyncCallbacks");
       }
     },
 
