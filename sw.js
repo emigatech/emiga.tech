@@ -1,6 +1,6 @@
 //This is the service worker with the Advanced caching
 
-const CACHE = ["emiga-tech-v-1.4.3"];
+const CACHE = "emiga-tech-v-1.4.3";
 
 const precacheFiles = [
   "index.html",
@@ -83,7 +83,6 @@ self.addEventListener("install", function (event) {
       console.log("[emiga.tech] Caching pages during install");
 
       return cache.addAll(precacheFiles).then(function () {
-
         return cache.add(offlineFallbackPage);
       });
     })
@@ -93,18 +92,7 @@ self.addEventListener("install", function (event) {
 // Allow sw to control of current page
 self.addEventListener("activate", function (event) {
   console.log("[emiga.tech] Claiming clients for current page");
-  //self.clients.claim()
-  event.waitUntil(
-	caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (CACHE.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
+  event.waitUntil(self.clients.claim());
 });
 
 // If any fetch fails, it will look for the request in the cache and serve it from there first
