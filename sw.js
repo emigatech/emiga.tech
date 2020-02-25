@@ -1,6 +1,6 @@
 //This is the service worker with the Advanced caching
 
-const CACHE = "emiga-tech-v-1.4.3";
+const CACHE = "emiga-tech-v-1.4.4";
 
 const precacheFiles = [
   "index.html",
