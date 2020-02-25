@@ -50,25 +50,17 @@ $( document ).ready(function() {
                     <a href="`+filterXSS(url)+`" target="_blank" title="Go to `+filterXSS(title)+`">
                       <h4>`+filterXSS(title)+`</h4>
                     </a>
-                    <p class="pt-2 pb-2">`+filterXSS(content)+`</p>
+                    <p class="pt-2 pb-2">`+filterXSS(description)+`</p>
                 </div>
-                <div class="tcontainer bg-white col-sm-12 col-md-12 col-lg-12 p-0">
-                  <div class="ticker-wrap">
-                    <div class="ticker-move">
-                      <div class="ticker-item">`+filterXSS(description)+`</div>
-                    </div>
-                  </div>
-                </div>
+               	<div class="class-col-sm-12 col-md-12 col-lg-12 pt-2 pb-2 border">
+			  		<p class="text-muted">`+filterXSS(content)+`</p>
+			  	</div>
               </div>
-			  
               <div class="d-flex justify-content-between pt-2 pb-2">
                 <div>
                   <h6 class="text-muted d-sm-none d-md-block">by <b>`+filterXSS(author)+`</b> on `+filterXSS(source_name)+`</h6>
                 </div>
               </div>
-			  
-			  <div id="emiga_hello_`+id+`" class="p-0"></div>
-
             </div>
           </div>
         `;
@@ -134,9 +126,9 @@ $( document ).ready(function() {
       	{
 		
 			date=data.articles[i].publishedAt,image=data.articles[i].urlToImage,title=data.articles[i].title,description=data.articles[i].description,url=data.articles[i].url,content=data.articles[i].content,author=data.articles[i].author,source_name=data.articles[i].source.name,"null"==date&&date,"null"==image&&date,"null"==title&&date,"null"==description&&date,"null"==url&&date,"null"==content&&date,"null"==author&&date,"null"==source_name&&date;
-	        $('#emiga-app').append(PostHtml(String(i),String(date),String(url),String(title),String(image),String(content),String(description),String(author),String(source_name)));	        lazy.update();
+	        $('#emiga-app').append(PostHtml(String(i),String(date),String(url),String(title),String(image),String(content),String(description),String(author),String(source_name)));	        
+	        lazy.update();
       		
-      		var emiga_hello_i = i;
       	}
     },
 

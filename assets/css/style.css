@@ -6,9 +6,6 @@
 body {
   font-family: 'Roboto', sans-serif !important;
 }
-body * {
-  word-break: break-all !important;
-}
 textarea:hover, 
 input:hover, 
 textarea:active, 
@@ -117,51 +114,6 @@ a:hover{
   border-left: none !important;
   border-right: none !important;
   border-bottom: none !important;
-}
-/**
-  Media Queries
-*/
-@media only screen and (max-width: 575px)  {
-  .border {
-    border-left: none !important;
-    border-right : none !important;
-  }
-}
-/**
-  Ticker
-*/
-@keyframes ticker {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-100%, 0, 0); }
-  }
-.tcontainer{
-  width: 280px;
-  position: fixed;
-  overflow: hidden;
-  transform: rotate(90deg);
-  margin-top: 132px;
-  margin-left: -131px !important;
-}
-.ticker-wrap {
-  width: 280px;
-  padding-left: 280px;
-  background-color: #fff;
-}
-.ticker-move {
-  display: inline-block;
-  white-space: nowrap;
-  padding-right: 280px;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
-  animation-name: ticker;
-  animation-duration: 13s;
-}
-.ticker-move:hover{
-  animation-play-state: paused;
-}
-.ticker-item{
-  display: inline-block;
-  padding: 0 2rem;
 }
 /**
   Search bar
