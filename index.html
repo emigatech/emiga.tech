@@ -127,11 +127,8 @@
 
 	<!-- App -->
 	<div class="container pt-2 pb-5">
-		<div class="text-center mt-1 mb-1">
+		<div class="text-center mt-1 mb-1 p-0">
 			<div id="emiga_hello_1" class="w-100 light yandex-adaptive container"></div>
-		</div>
-		<div class="text-center mt-1 mb-1">
-			<div id="emiga_hello_2" class="w-100 light yandex-adaptive container"></div>
 		</div>
 
 		<div id="loading" class="text-center pt-5">
@@ -254,23 +251,6 @@
                 blockId: "R-A-518913-2",
                 renderTo: "emiga_hello_1",
                 pageNumber: 1,
-                async: true
-            });
-        });
-        t = d.getElementsByTagName("script")[0];
-        s = d.createElement("script");
-        s.type = "text/javascript";
-        s.src = "//an.yandex.ru/system/context.js";
-        s.async = true;
-        t.parentNode.insertBefore(s, t);
-    })(this, this.document, "yandexContextAsyncCallbacks");  
- 	(function(w, d, n, s, t) {
-        w[n] = w[n] || [];
-        w[n].push(function() {
-            Ya.Context.AdvManager.render({
-                blockId: "R-A-518913-2",
-                renderTo: "emiga_hello_2",
-                pageNumber: 2,
                 async: true
             });
         });
