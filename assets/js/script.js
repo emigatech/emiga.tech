@@ -105,7 +105,8 @@ $( document ).ready(function() {
       $('#error-text').html('');
 
       	// Error Message
-		if(data.totalResults==0){
+		if(data.totalResults == 0){
+			console.log('no data');
  			$('.spinner-border').hide(); 	
 		    $('#error-text').append(
 				`
