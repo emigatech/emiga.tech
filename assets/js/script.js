@@ -169,60 +169,23 @@ $( document ).ready(function() {
 	/**
 		Yandex	
 	*/
-	(function(w, d, n, s, t) {
-	w[n] = w[n] || [];
-	w[n].push(function() {
-		Ya.Context.AdvManager.render({
-		    blockId: 'R-A-518913-2',
-		    renderTo: 'emiga_hello_0',
-		    pageNumber: 1,
-		    async: true
-		});
-	});
-	t = d.getElementsByTagName("script")[0];
-	s = d.createElement("script");
-	s.type = "text/javascript";
-	s.src = "//an.yandex.ru/system/context.js";
-	s.async = true;
-	t.parentNode.insertBefore(s, t);
- 	})(this, this.document, "yandexContextAsyncCallbacks");
-
-	(function(w, d, n, s, t) {
-	w[n] = w[n] || [];
-	w[n].push(function() {
-		Ya.Context.AdvManager.render({
-		    blockId: 'R-A-518913-2',
-		    renderTo: 'emiga_hello_1',
-		    pageNumber: 2,
-		    async: true
-		});
-	});
-	t = d.getElementsByTagName("script")[0];
-	s = d.createElement("script");
-	s.type = "text/javascript";
-	s.src = "//an.yandex.ru/system/context.js";
-	s.async = true;
-	t.parentNode.insertBefore(s, t);
- 	})(this, this.document, "yandexContextAsyncCallbacks");
-
-	(function(w, d, n, s, t) {
-	w[n] = w[n] || [];
-	w[n].push(function() {
-		Ya.Context.AdvManager.render({
-		    blockId: 'R-A-518913-2',
-		    renderTo: 'emiga_hello_2',
-		    pageNumber: 3,
-		    async: true
-		});
-	});
-	t = d.getElementsByTagName("script")[0];
-	s = d.createElement("script");
-	s.type = "text/javascript";
-	s.src = "//an.yandex.ru/system/context.js";
-	s.async = true;
-	t.parentNode.insertBefore(s, t);
-	})(this, this.document, "yandexContextAsyncCallbacks");
-
+	// (function(w, d, n, s, t) {
+	// w[n] = w[n] || [];
+	// w[n].push(function() {
+	// 	Ya.Context.AdvManager.render({
+	// 	    blockId: 'R-A-518913-2',
+	// 	    renderTo: 'emiga_hello_0',
+	// 	    pageNumber: 1,
+	// 	    async: true
+	// 	});
+	// });
+	// t = d.getElementsByTagName("script")[0];
+	// s = d.createElement("script");
+	// s.type = "text/javascript";
+	// s.src = "//an.yandex.ru/system/context.js";
+	// s.async = true;
+	// t.parentNode.insertBefore(s, t);
+ 	// 	})(this, this.document, "yandexContextAsyncCallbacks");
 
 	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
 	  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
@@ -296,18 +259,18 @@ $( document ).ready(function() {
 	/**
 		Service Worker
 	*/	
-	if ("serviceWorker" in navigator) {
-	  if (navigator.serviceWorker.controller) {
-	    console.log("[emiga.tech] active service worker found, no need to register");
-	  }
-	  else {
-	    navigator.serviceWorker
-	      .register("sw.js", {
-	        scope: "./"
-	      })
-	      .then(function (reg) {
-	        console.log("[emiga.tech] Service worker has been registered for scope: " + reg.scope);
-	      });
-	  }
-	}	
+	// if ("serviceWorker" in navigator) {
+	//   if (navigator.serviceWorker.controller) {
+	//     console.log("[emiga.tech] active service worker found, no need to register");
+	//   }
+	//   else {
+	//     navigator.serviceWorker
+	//       .register("sw.js", {
+	//         scope: "./"
+	//       })
+	//       .then(function (reg) {
+	//         console.log("[emiga.tech] Service worker has been registered for scope: " + reg.scope);
+	//       });
+	//   }
+	// }	
 });
