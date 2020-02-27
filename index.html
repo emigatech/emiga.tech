@@ -212,7 +212,7 @@
 
 		$.each(emiga_seo, function(key, value) {
 			$("#emiga_nav").append(`
-				<a class="nav-link" title="Go to `+value+`" href="https://emiga.tech/?q=`+value.split(' ').join('+')+`">`+value+`</a>
+				<a class="nav-link" title="Go to `+filterXSS(value)+`" href="https://emiga.tech/?q=`+filterXSS(value).split(' ').join('+')+`">`+filterXSS(value)+`</a>
 			`);
 		});
 	});
