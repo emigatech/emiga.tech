@@ -42,12 +42,12 @@ $( document ).ready(function() {
 
               <div class="row">            
                 <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 p-0">
-                    <a href="`+filterXSS(url)+`" target="_blank" title="Go to `+filterXSS(title)+`">
+                    <a rel="nofollow" href="`+filterXSS(url)+`" target="_blank" title="Go to `+filterXSS(title)+`">
                     	<div data-bg="url('`+filterXSS(image)+`')" alt="`+filterXSS(title)+`" class="lazy text-center img-fluid img-responsive bg-dark"></div>
                 	</a>
                 </div>
                 <div class="col-sm-12 col-md-8 col-lg-8 bg-white p-3 mt-1 mb-1">
-                    <a href="`+filterXSS(url)+`" target="_blank" title="Go to `+filterXSS(title)+`">
+                    <a rel="nofollow" href="`+filterXSS(url)+`" target="_blank" title="Go to `+filterXSS(title)+`">
                       <h4>`+filterXSS(title)+`</h4>
                     </a>
                     <p class="pt-2 pb-2">`+filterXSS(description)+`</p>
@@ -61,6 +61,11 @@ $( document ).ready(function() {
                   <h6 class="text-muted d-sm-none d-md-block">by <b>`+filterXSS(author)+`</b> on `+filterXSS(source_name)+`</h6>
                 </div>
               </div>
+            </div>
+          </div>
+          <div data-aos="fade-down"  data-aos-offset="0" class="col-12 border mt-1 mb-1 w-100">
+            <div class="container pt-2 pb-2">
+            	<div id="emiga_hello_1" class="yandex-adaptive"></div>
             </div>
           </div>
         `;
@@ -131,6 +136,8 @@ $( document ).ready(function() {
 	        lazy.update();
       		
       	}
+
+      	var emiga_hello_length = data.articles.length;
     },
 
     error: function(req, status, err) {
@@ -158,4 +165,90 @@ $( document ).ready(function() {
 	    }
 
 	});
+
+	/**
+		Yandex	
+	*/
+	function emigaHello(no,id,target){
+		(function(w, d, n, s, t) {
+		w[n] = w[n] || [];
+		w[n].push(function() {
+			Ya.Context.AdvManager.render({
+			    blockId: target,
+			    renderTo: id,
+			    pageNumber: no,
+			    async: true
+			});
+		});
+		t = d.getElementsByTagName("script")[0];
+		s = d.createElement("script");
+		s.type = "text/javascript";
+		s.src = "//an.yandex.ru/system/context.js";
+		s.async = true;
+		t.parentNode.insertBefore(s, t);
+ 		})(this, this.document, "yandexContextAsyncCallbacks"); 
+	}
+
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+	   ym(57695923, "init", {
+	        clickmap:true,
+	        trackLinks:true,
+	        accurateTrackBounce:true,
+	        webvisor:true,
+	        ecommerce:"dataLayer"
+	});
+
+	emigaHello(1,'emiga_hello_1','R-A-518913-2');
+	emigaHello(2,'emiga_hello_2','R-A-518913-2');
+	emigaHello(3,'emiga_hello_3','R-A-518913-2');
+
+	/**
+		One Signal
+	*/
+	var OneSignal = window.OneSignal || [];
+		  OneSignal.push(function() {
+		    OneSignal.init({
+		        appId: "4baf2d5b-10b0-47a6-8c12-8ac790a45afc",
+		        safari_web_id: "web.onesignal.auto.5ecc7e9f-2540-4c26-bcd6-80ea5ac40604",
+		        autoResubscribe: true,
+		        notifyButton: {
+		        enable: false,
+		    },
+		    welcomeNotification: {
+		        "title": "Welcome to emiga.tech",
+		        "message": "Thanks for subscribing!",
+		        "url": "https://emiga.tech/?ref=notification.subscribed" 
+		    }})
+		    .then(()=>{
+			    if (OneSignal.isPushNotificationsSupported()) {
+			    	OneSignal.push(function() {
+				       	OneSignal.showNativePrompt();
+				  		OneSignal.registerForPushNotifications();
+					});
+					OneSignal.push(["getNotificationPermission", function(permission) {
+				   		console.log("[emiga.tech] => Notification Permission:", permission);
+					}]);
+			    }   
+			});
+	});
+
+	/**
+		Service Worker
+	*/	
+	if ("serviceWorker" in navigator) {
+	  if (navigator.serviceWorker.controller) {
+	    console.log("[emiga.tech] active service worker found, no need to register");
+	  }
+	  else {
+	    navigator.serviceWorker
+	      .register("sw.js", {
+	        scope: "./"
+	      })
+	      .then(function (reg) {
+	        console.log("[emiga.tech] Service worker has been registered for scope: " + reg.scope);
+	      });
+	  }
+	}	
 });
