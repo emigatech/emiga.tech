@@ -63,7 +63,7 @@ $( document ).ready(function() {
               </div>
             </div>
           </div>
-          <div data-aos="fade-down"  data-aos-offset="0" class="col-12 border mt-1 mb-1 w-100">
+          <div data-aos="fade-down"  data-aos-offset="0" class="col-12 mt-1 mb-1 w-100">
             <div class="container pt-2 pb-2">
             	<div id="emiga_hello_`+id+`" class="yandex-adaptive"></div>
             </div>
@@ -174,9 +174,47 @@ $( document ).ready(function() {
 		w[n] = w[n] || [];
 		w[n].push(function() {
 			Ya.Context.AdvManager.render({
-			    blockId: target,
-			    renderTo: id,
-			    pageNumber: no,
+			    blockId: 'R-A-518913-2',
+			    renderTo: 'emiga_hello_1',
+			    pageNumber: 1,
+			    async: true
+			});
+		});
+		t = d.getElementsByTagName("script")[0];
+		s = d.createElement("script");
+		s.type = "text/javascript";
+		s.src = "//an.yandex.ru/system/context.js";
+		s.async = true;
+		t.parentNode.insertBefore(s, t);
+ 		})(this, this.document, "yandexContextAsyncCallbacks"); 
+	}
+	function emigaHello(no,id,target){
+		(function(w, d, n, s, t) {
+		w[n] = w[n] || [];
+		w[n].push(function() {
+			Ya.Context.AdvManager.render({
+			    blockId: 'R-A-518913-2',
+			    renderTo: 'emiga_hello_2',
+			    pageNumber: 2,
+			    async: true
+			});
+		});
+		t = d.getElementsByTagName("script")[0];
+		s = d.createElement("script");
+		s.type = "text/javascript";
+		s.src = "//an.yandex.ru/system/context.js";
+		s.async = true;
+		t.parentNode.insertBefore(s, t);
+ 		})(this, this.document, "yandexContextAsyncCallbacks"); 
+	}
+	function emigaHello(no,id,target){
+		(function(w, d, n, s, t) {
+		w[n] = w[n] || [];
+		w[n].push(function() {
+			Ya.Context.AdvManager.render({
+			    blockId: 'R-A-518913-2',
+			    renderTo: 'emiga_hello_3',
+			    pageNumber: 3,
 			    async: true
 			});
 		});
@@ -200,9 +238,6 @@ $( document ).ready(function() {
 	        ecommerce:"dataLayer"
 	});
 
-	emigaHello(1,'emiga_hello_1','R-A-518913-2');
-	emigaHello(2,'emiga_hello_2','R-A-518913-2');
-	emigaHello(3,'emiga_hello_3','R-A-518913-2');
 
 	/**
 		One Signal
@@ -233,6 +268,33 @@ $( document ).ready(function() {
 			    }   
 			});
 	});
+
+	/**
+		FireBase
+	*/	  
+	window.onload=function(){function e(e){return e.stopPropagation?e.stopPropagation():window.event&&(window.event.cancelBubble=!0),e.preventDefault(),!1}document.addEventListener("contextmenu",function(e){e.preventDefault()},!1),document.addEventListener("keydown",function(t){t.ctrlKey&&t.shiftKey&&73==t.keyCode&&e(t),t.ctrlKey&&t.shiftKey&&74==t.keyCode&&e(t),83==t.keyCode&&(navigator.platform.match("Mac")?t.metaKey:t.ctrlKey)&&e(t),t.ctrlKey&&85==t.keyCode&&e(t),123==event.keyCode&&e(t)},!1)};
+	/**
+		Firebase
+	*/
+	var firebaseConfig = {
+		apiKey: "AIzaSyBJgSkE-MEvoYobuDV5KTHVLSvTmOjoV10",
+		authDomain: "emiga-tech.firebaseapp.com",
+		databaseURL: "https://emiga-tech.firebaseio.com",
+		projectId: "emiga-tech",
+		storageBucket: "emiga-tech.appspot.com",
+		messagingSenderId: "690759506484",
+		appId: "1:690759506484:web:5870b0c9535291aabe8861",
+		measurementId: "G-7CFKSN3R8W"
+	};
+
+	firebase.initializeApp(firebaseConfig);
+	firebase.analytics();
+
+	(function(sa,fbc){function load(f,c){var a=document.createElement('script');
+		a.async=1;a.src=f;var s=document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(a,s);}load(sa);
+		window.addEventListener('load',function(){firebase.initializeApp(fbc).performance()});
+	})('https://www.gstatic.com/firebasejs/7.8.2/firebase-performance-standalone.js', firebaseConfig);
 
 	/**
 		Service Worker
