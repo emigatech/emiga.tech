@@ -65,7 +65,7 @@ $( document ).ready(function() {
           </div>
           <div data-aos="fade-down"  data-aos-offset="0" class="col-12 border mt-1 mb-1 w-100">
             <div class="container pt-2 pb-2">
-            	<div id="emiga_hello_1" class="yandex-adaptive"></div>
+            	<div id="emiga_hello_`+id+`" class="yandex-adaptive"></div>
             </div>
           </div>
         `;
