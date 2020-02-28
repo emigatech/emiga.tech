@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="canonical" href="https://emiga.tech/">
 
-	<base href="https://emiga.tech/">
+	<!--<base href="https://emiga.tech/">-->
 
 	<meta name="robots" content="index,follow">
 	<meta name="google" content="notranslate">
@@ -126,7 +126,7 @@
 	</nav><!-- end nav -->
 
 	<!-- SEO NAV -->
-	<div id="emiga_seo"></div>
+	<div id="emiga_recommendations"></div>
 
 	<!-- App -->
 	<div class="container pt-2 pb-5">
@@ -195,28 +195,7 @@
 	<script src="assets/js/script.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	!function(e,t,n,a,s){e[n]=e[n]||[],e[n].push(function(){Ya.Context.AdvManager.render({blockId:"R-A-518913-2",renderTo:"emiga_hello",pageNumber:0,async:!0})}),s=t.getElementsByTagName("script")[0],(a=t.createElement("script")).type="text/javascript",a.src="//an.yandex.ru/system/context.js",a.async=!0,s.parentNode.insertBefore(a,s)}(this,this.document,"yandexContextAsyncCallbacks"),function(e,t,n,a,s){e[n]=e[n]||[],e[n].push(function(){Ya.Context.AdvManager.render({blockId:"R-A-518913-2",renderTo:"emiga_hello_0",pageNumber:1,async:!0})}),s=t.getElementsByTagName("script")[0],(a=t.createElement("script")).type="text/javascript",a.src="//an.yandex.ru/system/context.js",a.async=!0,s.parentNode.insertBefore(a,s)}(this,this.document,"yandexContextAsyncCallbacks"),function(e,t,n,a,s){e[n]=e[n]||[],e[n].push(function(){Ya.Context.AdvManager.render({blockId:"R-A-518913-2",renderTo:"emiga_hello_1",pageNumber:2,async:!0})}),s=t.getElementsByTagName("script")[0],(a=t.createElement("script")).type="text/javascript",a.src="//an.yandex.ru/system/context.js",a.async=!0,s.parentNode.insertBefore(a,s)}(this,this.document,"yandexContextAsyncCallbacks"),function(e,t,n,a,s){e[n]=e[n]||[],e[n].push(function(){Ya.Context.AdvManager.render({blockId:"R-A-518913-2",renderTo:"emiga_hello_2",pageNumber:3,async:!0})}),s=t.getElementsByTagName("script")[0],(a=t.createElement("script")).type="text/javascript",a.src="//an.yandex.ru/system/context.js",a.async=!0,s.parentNode.insertBefore(a,s)}(this,this.document,"yandexContextAsyncCallbacks");
-	
-	$(document).ready(function() {
-		$("#emiga_seo").html(`
-			<div class="nav-scroller bg-white border-top border-bottom">
-			  <nav class="nav nav-underline" id="emiga_nav"></nav>
-			</div>`);
 
-		var emiga_seo = ['FRONT END', 'BACK END', 'APPLICATION', 'API', 'BUGS', 'DEVOPS', 'OBJECT-ORIENTED PROGRAMMING', 'SOFTWARE', 
-		'CONTENT CURATION','ENGAGEMENT','EMBEDDING','IMPRESSIONS','INFLUENCER','MENTIONS','MICROBLOGGING',
-		'ORGANIC','REACH','SOCIAL GRAPH', 'USER-GENERATED CONTENT', 'AFFILIATE MARKETING', 'BOUNCE RATE', 'CALL TO ACTION',
-		'CLICK THROUGH RATE', 'SALES FUNNEL', 'CONVERSION RATE OPTIMIZATION' , 'KEYWORDS', 'MARKETING AUTOMATION', 'MULTICHANNEL MARKETING',
-		'SEARCH ENGINE MARKETING', 'SEARCH ENGINE OPTIMIZATION', 'TRAFFIC', 'GROWTH HACKING', 'A/B TESTING', 'CONTENT MARKETING',
-		'CONVERSION', 'DATA MINING', 'EMAIL MARKETING', 'WEBSITE OPTIMIZATION', 'COLOR VALUE', 'COLOR THEORY', 'GRID SYSTEM', 'PIXELS PER INCH',
-		'RASTER IMAGES', 'RESOLUTION', 'RETINA DISPLAY', 'VECTOR IMAGES', 'WIREFRAME', 'TRACKING'];
-
-		$.each(emiga_seo, function(key, value) {
-			$("#emiga_nav").append(`
-				<a class="nav-link" title="Go to `+filterXSS(value)+`" href="https://emiga.tech/?q=`+filterXSS(value).split(' ').join('+')+`">`+filterXSS(value)+`</a>
-			`);
-		});
-	});
-	
 	if ("serviceWorker" in navigator) {
 	  if (navigator.serviceWorker.controller) {
 	    console.log("[emiga.tech] active service worker found, no need to register");
