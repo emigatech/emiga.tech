@@ -33,13 +33,11 @@ $(document).ready(function() {
 			<div class="nav-scroller bg-white border-top border-bottom">
 			  <nav class="nav nav-underline" id="emiga_nav"></nav>
 			</div>`);
-   	if(data.length != 0) {
-   		for(var i=0; i < data.length; i++){
-			$("#emiga_nav").append(`
-					<a class="nav-link" title="Go to `+filterXSS(data[i].word)+`" href="https://emiga.tech/?q=`+filterXSS(data[i].word).split(' ').join('+')+`">`+filterXSS(data[i].word)+`</a>
-			`);
-		}
-   	}
+   	for(var i=0; i < data.length; i++){
+		$("#emiga_nav").append(`
+			<a class="nav-link" title="Go to `+filterXSS(data[i].word)+`" href="https://emiga.tech/?q=`+filterXSS(data[i].word).split(' ').join('+')+`">`+filterXSS(data[i].word)+`</a>
+		`);
+	}
   }
 
   // Posting
@@ -121,18 +119,25 @@ $(document).ready(function() {
   }
 
 
-$.ajax('https://cors-anywhere.herokuapp.com/https://api.datamuse.com/words?ml='+recommendations, {
+ $.ajax('https://cors-anywhere.herokuapp.com/https://api.datamuse.com/words?ml='+recommendations, {
     type: "GET",
     dataType: "json",
     success: function(data) {
-      Recommendations(data);
+   	  $('#emiga_recommendations').show();
+   	  $('#emiga_nav').show();
+      if(data.length > 0){
+         Recommendations(data);
+      }
+      else {
+        $('#emiga_nav').html('');
+        $('#emiga_recommendations').hide();        
+      }   
     },
 
     error: function(req, status, err) {
-      console.log('error on recommendations')
+      $('#emiga_recommendations').hide();
     }
   });
-
 
   $.ajax(request, {
     type: "GET",
