@@ -33,13 +33,13 @@ $(document).ready(function() {
 			<div class="nav-scroller bg-white border-top border-bottom">
 			  <nav class="nav nav-underline" id="emiga_nav"></nav>
 			</div>`);
-
-	for(var i=0; i < data.length; i++){
-		$("#emiga_nav").append(`
-				<a class="nav-link" title="Go to `+filterXSS(data[i].word)+`" href="https://emiga.tech/?q=`+filterXSS(data[i].word).split(' ').join('+')+`">`+filterXSS(data[i].word)+`</a>
-		`);
-
-	}
+   	if(data.length != 0) {
+   		for(var i=0; i < data.length; i++){
+			$("#emiga_nav").append(`
+					<a class="nav-link" title="Go to `+filterXSS(data[i].word)+`" href="https://emiga.tech/?q=`+filterXSS(data[i].word).split(' ').join('+')+`">`+filterXSS(data[i].word)+`</a>
+			`);
+		}
+   	}
   }
 
   // Posting
