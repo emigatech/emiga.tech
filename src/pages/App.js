@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import '../scss/index.scss';
-import 'bootstrap';
 
 import Navbar from '../components/Navbar';
 import Recommendations from '../components/Recommendations.js';

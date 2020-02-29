@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
 import Logo from '../images/emiga-logo.png';
 
 class Privacy extends Component {
@@ -7,9 +6,9 @@ class Privacy extends Component {
     return (
       <div>
         <div className="text-center p-5">
-      		<Link to="/">
+      		<a href="/" title="Go to main">
       			<img src={Logo}  className="img-fluid" height={64} width={64} alt="emiga.tech logo"/>
-      		</Link>
+      		</a>
       	</div>
         <div className="container pt-2 pb-5 border">
       		<div className="p-1">

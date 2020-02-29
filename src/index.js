@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 import Routes from './Routes.js'
+import '../scss/index.scss';
+import 'bootstrap';
 
 ReactDOM.render(
   <Routes/>
