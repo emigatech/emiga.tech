@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import App from './pages/App';
+import Error from './pages/Error';
+
 import TermsAndConditions from './pages/TermsAndConditions';
 import Privacy from './pages/Privacy';
 import $ from 'jquery';
@@ -109,7 +111,7 @@ class Routes extends Component {
                     <meta property="og:title" content="Error 404 | emiga.tech ― You know us. (All in one technology news)" />
                     <meta property="og:description" content="Error 404 | emiga.tech provides top technology news, with investigative reporting and in-depth coverage of tech issues and events. You know us." />
                 </Helmet>
-                <h1>Error 404</h1>
+                <Error/>
               </div>
             </Route>
           </Switch>
