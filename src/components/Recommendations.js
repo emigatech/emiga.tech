@@ -72,17 +72,24 @@ class Recommendations extends Component {
     }
 
     else {
-      return (
-        <div className="nav-scroller bg-white border-top border-bottom">
-          <nav className="nav nav-underline">
-          {data.map(data => (
-              <a className="nav-link" key={uuid()} title={"Go to "+data.word} href={"/?q="+data.word.split(' ').join('+')}>
-                {data.word}
-              </a>
-          ))}
-          </nav>
-        </div>
-      );
+      data.map((data, index)=> {
+        if(index > 0) {
+          return (
+            <div className="nav-scroller bg-white border-top border-bottom">
+              <nav className="nav nav-underline">
+              {data.map((data, index) => (
+                  <a className="nav-link" key={uuid()} title={"Go to "+data.word} href={"/?q="+data.word.split(' ').join('+')}>
+                    {data.word}
+                  </a>
+              ))}
+              </nav>
+            </div>
+          );
+        }
+        else {
+          return ('');    
+        }
+      });
     }
   }
 }
