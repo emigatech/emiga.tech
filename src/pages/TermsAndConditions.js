@@ -34,7 +34,7 @@ class TermsAndConditions extends Component {
 
               <p>1.7 Additional policies which also apply to your use of the Site include:</p>
 
-              <p>&#9679; Our Privacy Notice https://emiga.tech/privacy-policy, which sets out the terms on which we process any personal data we collect from you, or that you provide to us. By using the Site, you consent to such processing and you warrant that all data provided by you is accurate.  &#9679; Our Acceptable Use Policy https://emiga.tech/privacy-policy, which sets out the permitted uses and prohibited uses of the Site. When using the Site, you must comply with this Acceptable Use Policy.  &#9679; Our Cookie Policy https://emiga.tech/privacy-policy, which sets out information about the cookies on the Site.</p>
+              <p> Our Privacy Notice https://emiga.tech/privacy-policy, which sets out the terms on which we process any personal data we collect from you, or that you provide to us. By using the Site, you consent to such processing and you warrant that all data provided by you is accurate.   Our Acceptable Use Policy https://emiga.tech/privacy-policy, which sets out the permitted uses and prohibited uses of the Site. When using the Site, you must comply with this Acceptable Use Policy.   Our Cookie Policy https://emiga.tech/privacy-policy, which sets out information about the cookies on the Site.</p>
 
               <p>2. Acceptable Use</p>
 
@@ -42,7 +42,23 @@ class TermsAndConditions extends Component {
 
               <p>2.2 You may not access or use the Site for any purpose other than that for which we make the site and our services available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</p>
 
-              <p>2.3 As a user of this Site, you agree not to:    &#9679; Systematically retrieve data or other content from the Site to a compile database or directory without written permission from us  &#9679; Use the Site to advertise or sell goods and services  &#9679; Copy or adapt the Site&rsquo;s software, including but not limited to Flash, PHP, HTML, JavaScript, or other code  &#9679; Use, launch, or engage in any automated use of the system, such as using scripts to send comments or messages, robots, scrapers, offline readers, or similar data gathering and extraction tools  &#9679; Advertise products or services not intended by us  &#9679; Make any unauthorized use of the Site, including collecting usernames and/or email addresses of users to send unsolicited email or creating user accounts under false pretenses  &#9679; Use a buying agent or purchasing agent to make purchases on the Site  &#9679; Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any content or enforce limitations on the use  &#9679; Engage in unauthorized framing of or linking to the Site  &#9679; Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords  &#9679; Make improper use of our support services, or submit false reports of abuse or misconduct  &#9679; Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools  &#9679; Interfere with, disrupt, or create an undue burden on the Site or the networks and services connected to the Site  &#9679; Attempt to impersonate another user or person, or use the username of another user  &#9679; Sell or otherwise transfer your profile  &#9679; Use any information obtained from the Site in order to harass, abuse, or harm another person  &#9679; Use the Site or our content as part of any effort to compete with us or to create a revenue-generating endeavor or commercial enterprise  &#9679; Harass, annoy, intimidate, or threaten any of our employees, agents, or other users  &#9679; Attempt to access any portions of the Site that you are restricted from accessing  &#9679; Decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site  &#9679; Delete the copyright or other proprietary rights notice from any of the content  &#9679; Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material that interferes with any party&rsquo;s uninterrupted use and enjoyment of the Site, or any material that acts as a passive or active information collection or transmission mechanism  &#9679; Use the Site in a manner inconsistent with any applicable laws or regulations  &#9679; Threaten users with negative feedback or offering services solely to give positive feedback to users  &#9679; Misrepresent experience, skills, or information about a User  &#9679; Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site  &#9679; Falsely imply a relationship with us or another company with whom you do not have a relationship</p>
+              <p>2.3 As a user of this Site, you agree not to:
+                  Systematically retrieve data or other content from the Site to a compile database or directory without written permission from us
+                  Use the Site to advertise or sell goods and services   Copy or adapt the Site&rsquo;s software, including but not limited to Flash, PHP, HTML, JavaScript, or other code
+                  Use, launch, or engage in any automated use of the system, such as using scripts to send comments or messages, robots, scrapers, offline readers, or similar data gathering and extraction tools
+                  Advertise products or services not intended by us   Make any unauthorized use of the Site, including collecting usernames and/or email addresses of users to send unsolicited email or creating user accounts under false pretenses
+                  Use a buying agent or purchasing agent to make purchases on the Site   Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any content or enforce limitations on the use
+                  Engage in unauthorized framing of or linking to the Site   Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords   Make improper use of our support services, or submit false reports of abuse or misconduct
+                  Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools   Interfere with, disrupt, or create an undue burden on the Site or the networks and services connected to the Site
+                  Attempt to impersonate another user or person, or use the username of another user   Sell or otherwise transfer your profile
+                  Use any information obtained from the Site in order to harass, abuse, or harm another person   Use the Site or our content as part of any effort to compete with us or to create a revenue-generating endeavor or commercial enterprise
+                  Harass, annoy, intimidate, or threaten any of our employees, agents, or other users   Attempt to access any portions of the Site that you are restricted from accessing
+                  Decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site
+                  Delete the copyright or other proprietary rights notice from any of the content
+                  Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material that interferes with any party&rsquo;s uninterrupted use and enjoyment of the Site, or any material that acts as a passive or active information collection or transmission mechanism
+                  Use the Site in a manner inconsistent with any applicable laws or regulations   Threaten users with negative feedback or offering services solely to give positive feedback to users   Misrepresent experience, skills, or information about a User
+                  Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site
+                  Falsely imply a relationship with us or another company with whom you do not have a relationship</p>
 
               <p>3. Information you provide to us</p>
 
@@ -126,9 +142,9 @@ class TermsAndConditions extends Component {
 
               <p>Whether you are a consumer or a business user:</p>
 
-              <p>&#9679; We do not exclude or limit in any way our liability to you where it would be unlawful to do so. This includes liability for death or personal injury caused by our negligence or the negligence of our employees, agents or subcontractors and for fraud or fraudulent misrepresentation.</p>
+              <p> We do not exclude or limit in any way our liability to you where it would be unlawful to do so. This includes liability for death or personal injury caused by our negligence or the negligence of our employees, agents or subcontractors and for fraud or fraudulent misrepresentation.</p>
 
-              <p>&#9679; If we fail to comply with these Terms and Conditions, we will be responsible for loss or damage you suffer that is a foreseeable result of our breach of these Terms and Conditions, but we would not be responsible for any loss or damage that were not foreseeable at the time you started using the Site/Services.</p>
+              <p> If we fail to comply with these Terms and Conditions, we will be responsible for loss or damage you suffer that is a foreseeable result of our breach of these Terms and Conditions, but we would not be responsible for any loss or damage that were not foreseeable at the time you started using the Site/Services.</p>
 
               <p>Notwithstanding anything to the contrary contained in the Disclaimer/Limitation of Liability section, our liability to you for any cause whatsoever and regardless of the form of the action, will at all times be limited to a total aggregate amount equal to the greater of (a) the sum of &pound;5000 or (b) the amount paid, if any, by you to us for the Services/Site during the six (6) month period prior to any cause of action arising.</p>
 
@@ -136,19 +152,19 @@ class TermsAndConditions extends Component {
 
               <p>We will not be liable to you for any loss or damage, whether in contract, tort (including negligence), breach of statutory duty, or otherwise, even if foreseeable, arising under or in connection with:</p>
 
-              <p>&#9679; use of, or inability to use, our Site/Services; or  &#9679; use of or reliance on any content displayed on our Site.</p>
+              <p> use of, or inability to use, our Site/Services; or   use of or reliance on any content displayed on our Site.</p>
 
               <p>In particular, we will not be liable for:</p>
 
-              <p>&#9679; loss of profits, sales, business, or revenue;  &#9679; business interruption;  &#9679; loss of anticipated savings;  &#9679; loss of business opportunity, goodwill or reputation; or  &#9679; any indirect or consequential loss or damage.</p>
+              <p> loss of profits, sales, business, or revenue;   business interruption;   loss of anticipated savings;   loss of business opportunity, goodwill or reputation; or   any indirect or consequential loss or damage.</p>
 
               <p>If you are a consumer user:</p>
 
-              <p>&#9679; Please note that we only provide our Site for domestic and private use. You agree not to use our Site for any commercial or business purposes, and we have no liability to you for any loss of profit, loss of business, business interruption, or loss of business opportunity.</p>
+              <p> Please note that we only provide our Site for domestic and private use. You agree not to use our Site for any commercial or business purposes, and we have no liability to you for any loss of profit, loss of business, business interruption, or loss of business opportunity.</p>
 
-              <p>&#9679; If defective digital content that we have supplied, damages a device or digital content belonging to you and this is caused by our failure to use reasonable care and skill, we will either repair the damage or pay you compensation.</p>
+              <p> If defective digital content that we have supplied, damages a device or digital content belonging to you and this is caused by our failure to use reasonable care and skill, we will either repair the damage or pay you compensation.</p>
 
-              <p>&#9679; You have legal rights in relation to goods that are faulty or not as described. Advice about your legal rights is available from your local Citizens' Advice Bureau or Trading Standards office. Nothing in these Terms and Conditions will affect these legal rights.</p>
+              <p> You have legal rights in relation to goods that are faulty or not as described. Advice about your legal rights is available from your local Citizens' Advice Bureau or Trading Standards office. Nothing in these Terms and Conditions will affect these legal rights.</p>
 
               <p>10. Term and Termination</p>
 
