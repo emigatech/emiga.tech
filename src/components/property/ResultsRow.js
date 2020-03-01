@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Moment from 'react-moment';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 class ResultsRow extends Component {
 
@@ -21,13 +20,7 @@ class ResultsRow extends Component {
             <div className="row">
               <div className="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 p-0 h-280 bg-dark">
                   <a rel="nofollow noopener noreferrer" href={this.props.url} target="_blank" title={"Go to "+this.props.title}>
-                    <LazyLoadImage
-                      alt={"Go to "+this.props.title}
-                      effect="blur"
-                      className="text-center img-fluid img-responsive"
-                      height="280"
-                      src={this.props.image}
-                    />
+                    <div data-bg={"url("+this.props.image+")"} alt={"Go to "+this.props.title} className="lazy text-center img-fluid img-responsive bg-dark"></div>
                 </a>
               </div>
               <div className="col-sm-12 col-md-8 col-lg-8 bg-white p-3 mt-1 mb-1">

@@ -6,8 +6,7 @@ import Footer from '../components/Footer';
 import Results from '../components/Results.js';
 
 class App extends Component {
-
-    render() {
+  render() {
 
       return (
         <div>
