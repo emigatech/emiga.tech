@@ -4,6 +4,11 @@
   }
 }
 
+::-moz-selection, ::selection {
+  background: #dee2e6;
+  color: #000;
+}
+
 textarea:hover, input:hover, textarea:active, input:active, textarea:focus, input:focus {
   outline: 0px !important;
   -webkit-appearance: none;
