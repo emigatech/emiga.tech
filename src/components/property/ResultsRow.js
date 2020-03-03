@@ -24,7 +24,7 @@ class ResultsRow extends Component {
                 </a>
               </div>
               <div className="col-sm-12 col-md-8 col-lg-8 bg-white p-3 mt-1 mb-1">
-                  <a rel="nofollow noopener noreferrer" href={this.props.url} target="_blank" title="Go to title">
+                  <a rel="nofollow noopener noreferrer" href={this.props.url} target="_blank" title={this.props.title}>
                     <h4>{this.props.title}</h4>
                   </a>
                   <p className="pt-2 pb-2">{this.props.description}</p>
