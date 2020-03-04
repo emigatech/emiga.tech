@@ -11,7 +11,7 @@ class ResultRowSkeleton extends Component {
               <div className="col-12 border mt-1 mb-1 w-100">
                 <div className="container pt-2 pb-2">
                   <div className="row">
-                    <div className="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 p-0 h-280">
+                    <div className="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 p-0 h-280 rounded-0">
                         <Skeleton className="rounded-0" height={280}/>
                     </div>
                     <div className="col-sm-12 col-md-8 col-lg-8 bg-white p-3 mt-1 mb-1">
