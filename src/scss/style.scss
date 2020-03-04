@@ -4,9 +4,14 @@
   }
 }
 
-::-moz-selection, ::selection {
-  background: #dee2e6;
-  color: #000;
+::-moz-selection, html::-moz-selection, body::-moz-selection {
+  background: #dee2e6 !important;
+  color: #000 !important;
+}
+
+::selection , html::selection , body::selection {
+  background: #dee2e6 !important;
+  color: #000 !important;
 }
 
 textarea:hover, input:hover, textarea:active, input:active, textarea:focus, input:focus {
