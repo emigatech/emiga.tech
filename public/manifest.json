@@ -8,6 +8,7 @@
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#f3f3f3",
+    "permissions": ["gcm", "storage", "notifications"],
     "related_applications": [
         {
             "platform": "web",
