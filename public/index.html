@@ -141,7 +141,8 @@
           firebase.initializeApp(fbc).performance()
         });
       })('https://www.gstatic.com/firebasejs/7.9.3/firebase-performance.js', firebaseConfig);
-      firebase.initializeApp(firebaseConfig);
+      
+      if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig);}
       firebase.analytics();
       </script>
   </body>
