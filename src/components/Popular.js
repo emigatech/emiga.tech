@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import uuid from 'react-uuid'
 import MediumResults from '../components/MediumResults.js';
+import {Helmet} from "react-helmet";
 
 function Results() {
   return(
@@ -68,8 +69,10 @@ class Popular extends Component {
           ))}
           </nav>
         </div>
-        <div className="container pt-2 pb-5 pl-0 pr-0">
-          <Results/>
+        <div className=" pt-2 pb-5 pl-0 pr-0">
+          <div className="container pl-0 pr-0">
+            <Results/>
+          </div>
         </div>
       </div>
       );

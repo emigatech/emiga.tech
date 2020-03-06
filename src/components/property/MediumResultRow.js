@@ -14,12 +14,12 @@ class ResultsRow extends Component {
               <div className="d-flex justify-content-between col-12 p-3 border-bottom w-100">
                 <div>
                   <h6>
-                    <a href={this.props.url} title={"Go to "+this.props.title}>
+                    <a rel="nofollow noopener noreferrer" target="_blank" href={this.props.url} title={"Go to "+this.props.title}>
                       {this.props.title}
-                    </a> by {this.props.author}
+                    </a>
+                    <span className="text-muted"> by {this.props.author}</span>
                   </h6>
                 </div>
-
                 <div>
                   <h6 className="text-muted d-sm-none d-md-block">
                     <Moment format="DD MMMM HH:mm, YYYY">{sanitizer(this.props.date)}</Moment>
