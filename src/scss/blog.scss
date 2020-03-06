@@ -1,0 +1,31 @@
+.blog-post {
+  img {
+    max-width: 100% !important;
+    height: auto;
+    background-color: #dee2e6;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    text-align: center !important;
+    filter: grayscale(100%);
+    text-align: center;
+    display: block;
+
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
+
+  p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  * {
+    word-break: normal !important;
+  }
+}

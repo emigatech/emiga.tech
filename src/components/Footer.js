@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import Logo from '../images/emiga-logo.png';
+import $ from 'jquery';
+
+$(window).scroll(function(e) {
+    var scroll = $(window).scrollTop();
+    if (scroll >= 57) {  $('.footer').show(); }
+    else {  $('.footer').hide();  }
+});
 
 class Footer extends Component {
     render() {
