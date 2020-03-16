@@ -23,10 +23,10 @@ const query = (function(a) {
 /**
   Config
 */
-const API_KEY   = '3e8413b7a20d4df9a11665687faef077';
-const NEWS_API  = 'https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&language=en&pageSize=100&apiKey='+API_KEY+'&category=technology';
-const EVERY_API = 'https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?language=en&sortBy=popularity&pageSize=100&apiKey='+API_KEY+'&q=';
-const WORD_API  = 'https://cors-anywhere.herokuapp.com/https://api.datamuse.com/words?ml=';
+const API_KEY   = '2ea799f80e51479280acfe2b5ce2d4a8';
+const NEWS_API  = 'https://api.emiga.tech/https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&language=en&pageSize=100&apiKey='+API_KEY+'&category=technology';
+const EVERY_API = 'https://api.emiga.tech/https://newsapi.org/v2/everything?language=en&sortBy=popularity&pageSize=100&apiKey='+API_KEY+'&q=';
+const WORD_API  = 'https://api.emiga.tech/https://api.datamuse.com/words?ml=';
 
 if(query['q'] === undefined) {
   var results = NEWS_API;
