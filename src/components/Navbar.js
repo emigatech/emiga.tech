@@ -11,7 +11,7 @@ class Navbar extends Component {
                 <img className="text-hide" title="emiga.tech" src={Logo} width="32" height="32" alt="emiga-tech logo"/>
               </a>
 
-        		  <form id="search-bar">
+        		  <form id="search-bar" action="/">
         			   <input id="search" type="search" name="q" placeholder="Search..." required="on" className="form-control"/>
         		  </form>
 
@@ -34,6 +34,12 @@ class Navbar extends Component {
         			      </li>
         			      <li className="nav-item">
         			        <a className="pr-2 pl-2" className="nav-link" href="https://emiga.tech/apk/emiga.tech.apk" title="Download Android APK" rel="noopener noreferrer" target="_blank"><b>Download (Android)</b></a>
+        			      </li>
+                    <li className="nav-item">
+        			        <a className="pr-2 pl-2" className="nav-link" href="https://data.emiga.tech" title="Data by emiga.tech" rel="noopener noreferrer" target="_blank">data.emiga.tech</a>
+        			      </li>
+                    <li className="nav-item">
+        			        <a className="pr-2 pl-2" className="nav-link" href="https://ai.emiga.tech" title="AI by emiga.tech" rel="noopener noreferrer" target="_blank">ai.emiga.tech</a>
         			      </li>
         			  	</ul>
         			 </div>
